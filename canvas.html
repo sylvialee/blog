@@ -35,8 +35,6 @@
 			// Converts canvas to an image
 			function convertCanvasToImage(canvas) {
 				var image = new Image();
-				//image.crossOrigin = "*"
-				alert(canvas.toDataURL("image/png"));
 				image.src = canvas.toDataURL("png");
 				return image;
 			}
