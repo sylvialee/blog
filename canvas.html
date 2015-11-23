@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>canvas</title>
+</head>
+<body>
+	<img src="code.jpg" id="code">
+	<div id="canvasHolder"></div>
+	<div id="pngHolder"></div>
+	<script type="text/javascript">
+
+		wo = window.onload;
+		window.onload = function() {
+			wo && wo.call(null);
+			
+			// Get the image
+			var sampleImage = document.getElementById("code"),
+				canvas = convertImageToCanvas(sampleImage);
+			
+			// Actions
+			document.getElementById("canvasHolder").appendChild(canvas);
+			document.getElementById("pngHolder").appendChild(convertCanvasToImage(canvas));
+			
+			// Converts image to canvas; returns new canvas element
+			function convertImageToCanvas(image) {
+				var canvas = document.createElement("canvas");
+				canvas.width = image.width;
+				canvas.height = image.height;
+				canvas.getContext("2d").drawImage(image, 0, 0);
+
+				return canvas;
+			}
+
+			// Converts canvas to an image
+			function convertCanvasToImage(canvas) {
+				var image = new Image();
+				//image.crossOrigin = "*"
+				alert(canvas.toDataURL("image/png"));
+				image.src = canvas.toDataURL("png");
+				return image;
+			}
+		};
+
+
+
+		/*var img = new Image();
+		img.src="code.jpg"; 
+		// 把image 转换为 canvas对象
+		function convertImageToCanvas(image) {
+		// 创建canvas DOM元素，并设置其宽高和图片一样
+		var canvas = document.createElement("canvas");
+		canvas.width = image.width;
+		canvas.height = image.height;
+		// 坐标(0,0) 表示从此处开始绘制，相当于偏移。
+		canvas.getContext("2d").drawImage(image, 0, 0);
+		return canvas;
+		} 
+
+		// 从 canvas 提取图片 image
+		function convertCanvasToImage(canvas) {
+		//新Image对象，可以理解为DOM
+		var image = new Image();
+		// canvas.toDataURL 返回的是一串Base64编码的URL，当然,浏览器自己肯定支持
+		// 指定格式 PNG
+		image.src = canvas.toDataURL("image/png");
+		return image;
+		} 
+		convertCanvasToImage(convertImageToCanvas("code.jpg"))*/
+	</script>
+</body>
+</html>
