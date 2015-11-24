@@ -4,13 +4,34 @@
 	<meta charset="UTF-8">
 	<title>canvas</title>
 </head>
+<style type="text/css"> 
+	#imagePreview { 
+		width: 160px; 
+		height: 120px; 
+		filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod=scale); 
+	} 
+</style> 
 <body>
-	<img src="images/jsl.png" id="code">
+
+	<div id="imagePreview"> 
+	</div> 
+	<form name="uploadForm"> 
+	<p> 
+	<input id="imageInput" type="file" name="myPhoto" onchange="loadImageFile();" /><br /> 
+	<input type="submit" value="Send" /></p> 
+	</form> 
+
+
+	<img src="images/2.png" id="code">
 	<div id="canvasHolder"></div>
 	<div id="pngHolder"></div>
+
+
+
+	<script type="text/javascript" src="preview.js"></script>
 	<script type="text/javascript">
 
-		wo = window.onload;
+		/*wo = window.onload;
 		window.onload = function() {
 			wo && wo.call(null);
 			
@@ -38,33 +59,11 @@
 				image.src = canvas.toDataURL("png");
 				return image;
 			}
-		};
+		};*/
 
 
 
-		/*var img = new Image();
-		img.src="code.jpg"; 
-		// 把image 转换为 canvas对象
-		function convertImageToCanvas(image) {
-		// 创建canvas DOM元素，并设置其宽高和图片一样
-		var canvas = document.createElement("canvas");
-		canvas.width = image.width;
-		canvas.height = image.height;
-		// 坐标(0,0) 表示从此处开始绘制，相当于偏移。
-		canvas.getContext("2d").drawImage(image, 0, 0);
-		return canvas;
-		} 
-
-		// 从 canvas 提取图片 image
-		function convertCanvasToImage(canvas) {
-		//新Image对象，可以理解为DOM
-		var image = new Image();
-		// canvas.toDataURL 返回的是一串Base64编码的URL，当然,浏览器自己肯定支持
-		// 指定格式 PNG
-		image.src = canvas.toDataURL("image/png");
-		return image;
-		} 
-		convertCanvasToImage(convertImageToCanvas("code.jpg"))*/
+		
 	</script>
 </body>
 </html>
