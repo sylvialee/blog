@@ -17,40 +17,40 @@ var loadImageFile = (function () {
 		}; 
 
 
+		// Get the image
+		var sampleImage = document.getElementById("head"),
+			canvas = convertImageToCanvas(sampleImage);
+		
+		// Actions
+		document.getElementById("canvasHolder").appendChild(canvas);
+		document.getElementById("pngHolder").appendChild(convertCanvasToImage(canvas));
+		
+		// Converts image to canvas; returns new canvas element
+		function convertImageToCanvas(image) {
+			var canvas = document.createElement("canvas");
+			canvas.width = image.width;
+			canvas.height = image.height;
+			canvas.getContext("2d").drawImage(image, 0, 0);
+
+			return canvas;
+		}
+
+		// Converts canvas to an image
+		function convertCanvasToImage(canvas) {
+			var image = new Image();
+			image.src = canvas.toDataURL("png");
+			return image;
+		}
+
 		return function () { 
 			var aFiles = document.getElementById("imageInput").files; 
 			if (aFiles.length === 0) { return; } 
 			if (!rFilter.test(aFiles[0].type)) { alert("You must select a valid image file!"); return; } 
 			oFReader.readAsDataURL(aFiles[0]); 
 		} 
-
-
 	} 
 
 
-	// Get the image
-	var sampleImage = document.getElementById("code"),
-		canvas = convertImageToCanvas(sampleImage);
-	
-	// Actions
-	document.getElementById("canvasHolder").appendChild(canvas);
-	document.getElementById("pngHolder").appendChild(convertCanvasToImage(canvas));
-	
-	// Converts image to canvas; returns new canvas element
-	function convertImageToCanvas(image) {
-		var canvas = document.createElement("canvas");
-		canvas.width = image.width;
-		canvas.height = image.height;
-		canvas.getContext("2d").drawImage(image, 0, 0);
 
-		return canvas;
-	}
-
-	// Converts canvas to an image
-	function convertCanvasToImage(canvas) {
-		var image = new Image();
-		image.src = canvas.toDataURL("png");
-		return image;
-	}
 
 })(); 
