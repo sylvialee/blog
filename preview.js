@@ -14,33 +14,33 @@ var loadImageFile = (function () {
 			} 
 			oPreviewImg.src = oFREvent.target.result;
 			oPreviewImg.id="head"; 
+			// Get the image
+			var sampleImage = document.getElementById("head"),
+				canvas = convertImageToCanvas(sampleImage);
+			
+			// Actions
+			document.getElementById("canvasHolder").appendChild(canvas);
+			document.getElementById("pngHolder").appendChild(convertCanvasToImage(canvas));
+			
+			// Converts image to canvas; returns new canvas element
+			function convertImageToCanvas(image) {
+				var canvas = document.createElement("canvas");
+				canvas.width = image.width;
+				canvas.height = image.height;
+				canvas.getContext("2d").drawImage(image, 0, 0);
+
+				return canvas;
+			}
+
+			// Converts canvas to an image
+			function convertCanvasToImage(canvas) {
+				var image = new Image();
+				image.src = canvas.toDataURL("png");
+				return image;
+			}
 		}; 
 
 
-		// Get the image
-		var sampleImage = document.getElementById("head"),
-			canvas = convertImageToCanvas(sampleImage);
-		
-		// Actions
-		document.getElementById("canvasHolder").appendChild(canvas);
-		document.getElementById("pngHolder").appendChild(convertCanvasToImage(canvas));
-		
-		// Converts image to canvas; returns new canvas element
-		function convertImageToCanvas(image) {
-			var canvas = document.createElement("canvas");
-			canvas.width = image.width;
-			canvas.height = image.height;
-			canvas.getContext("2d").drawImage(image, 0, 0);
-
-			return canvas;
-		}
-
-		// Converts canvas to an image
-		function convertCanvasToImage(canvas) {
-			var image = new Image();
-			image.src = canvas.toDataURL("png");
-			return image;
-		}
 
 		return function () { 
 			var aFiles = document.getElementById("imageInput").files; 
