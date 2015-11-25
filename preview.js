@@ -29,7 +29,7 @@ var loadImageFile = (function () {
 					var canvas = document.createElement("canvas");
 					canvas.width = image.width;
 					canvas.height = image.height;
-					canvas.getContext("2d").drawImage(image, 0, 0);
+					canvas.getContext("2d").drawImage(image, 0, 0,canvas.width, canvas.height);
 
 					return canvas;
 				}
@@ -37,6 +37,8 @@ var loadImageFile = (function () {
 				// Converts canvas to an image
 				function convertCanvasToImage(canvas) {
 					var image = new Image();
+					image.width="200";
+					image.height="300";
 					image.src = canvas.toDataURL("png");
 					return image;
 				}
