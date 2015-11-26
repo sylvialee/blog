@@ -11,7 +11,7 @@
 </head>
 <body>
 
-	<img src="images/1.png" id="pic" width="300">
+	<img src="images/1.png" id="pic" >
 
 
 
@@ -37,6 +37,7 @@
 
 		touch.on("#pic", "pinchend", function(ev){
 			initScale = currentScale;
+			this.style.transform = 'scale(' + initScale +')';
 		});
 
 		var dx, dy;
