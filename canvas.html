@@ -29,8 +29,8 @@
 		var currentScale;
 		var picW, picH; 
 		touch.on("#pic", "pinchstart", function(ev){
-			picW = target.style.width;
-			picH = target.style.height; 
+			picW = this.style.width;
+			picH = this.style.height; 
 		})
 
 		touch.on("#pic", "pinch", function(ev){
@@ -41,8 +41,8 @@
 		})
 
 		touch.on("#pic", "pinchend", function(ev){
-			this.style.width = picW*currentScale;
-			this.style.height = picH*currentScale;
+			this.style.width = picW*currentScale + 'px';
+			this.style.height = picH*currentScale + 'px';
 		});
 
 		var dx, dy;
