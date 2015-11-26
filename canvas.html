@@ -11,7 +11,7 @@
 </head>
 <body>
 
-	<img src="images/1.png" id="pic" width="300">
+	<img src="images/1.png" id="pic" style="width:300px;position:absolute;left:0; top:0;">
 
 
 
@@ -26,31 +26,33 @@
 		})
 
 		var initScale=1;
-		var currentScale;
+		var currentScale, picW, picH, picL, picT;
+
+		touch.on("#pic", "pinchstart", function(ev){
+			picW = this.style.width;
+		});
 
 		touch.on("#pic", "pinch", function(ev){
 			currentScale = ev.scale - 1;
 			currentScale = initScale+currentScale;
 			currentScale = currentScale<0.5 ? 0.5 : currentScale ;
-			this.style.transform = 'scale(' + currentScale +'),translate3d(' + offx + ',' + offy + ',0)';
+			this.style.width =  picW*currentScale ;
 		})
 
 		touch.on("#pic", "pinchend", function(ev){
-			initScale = currentScale;
+			initScale = 1;
 		});
 
-		var dx, dy;
 
 		touch.on("#pic", "drag", function(ev){
-			dx = dx || 0;
-			dy = dy || 0;
-			var offx = dx + ev.x + 'px';
-			var offy = dy + ev.y + 'px';
-			this.style.transform = 'scale(' + initScale +'),translate3d(' + offx + ',' + offy + ',0)';
+			picL = this.style.left;
+			picT = this.style.top;
+			var offx = picL + ev.x + 'px';
+			var offy = picT + ev.y + 'px';
+			this.style.left = offx ;
+			this.style.top = offy;
 		});
 		touch.on("#pic", 'dragend', function(ev){
-			dx += ev.x;
-			dy += ev.y;
 		})
 
 
