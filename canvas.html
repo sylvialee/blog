@@ -29,26 +29,25 @@
 		var currentScale;
 
 		touch.on("#pic", "pinch", function(ev){
-			var trans = this.style.transform.indexOf('translate3d')>-1 ? this.style.transform : '';
+			
 			currentScale = ev.scale - 1;
 			currentScale = initScale+currentScale;
 			currentScale = currentScale<0.5 ? 0.5 : currentScale ;
-			this.style.transform = 'scale(' + currentScale +'),'+trans;
+			this.style.transform = 'scale(' + currentScale +')';
 		})
 
 		touch.on("#pic", "pinchend", function(ev){
-			initScale;
+			initScale = currentScale;
 		});
 
 		var dx, dy;
 
 		touch.on("#pic", "drag", function(ev){
-			var trans = this.style.transform.indexOf('scale')>-1 ? this.style.transform : '';
 			dx = dx || 0;
 			dy = dy || 0;
 			var offx = dx + ev.x + 'px';
 			var offy = dy + ev.y + 'px';
-			this.style.transform = 'translate3d(' + offx + ',' + offy + ',0),'+trans;
+			this.style.transform = 'translate3d(' + offx + ',' + offy + ',0)';
 		});
 		touch.on("#pic", 'dragend', function(ev){
 			dx += ev.x;
