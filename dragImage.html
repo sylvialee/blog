@@ -1,0 +1,33 @@
+<!doctype html> 
+<html> 
+<head> 
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type" /> 
+<title>Image preview example</title> 
+<script type="text/javascript"> 
+ 	var pic =document.getElementById("pic");
+ 	var isMouseDown=false;
+ 	var pointToPic=function(x, y){
+ 		var left=pic.offsetLeft;
+ 		var top=pic.offsetTop;
+ 		return {x: x-left, y: y-top};
+ 	}
+ 	pic.onmousedown = function(e){
+ 		e.preventDefault();
+ 		var length = pointToPic(e.clientX, e.clientY);
+
+ 		isMouseDown = true;
+ 	}
+
+ 	pic.onmousemove = function(length){
+ 		e.preventDefault();
+ 		//var point=picToWindow(e.clientX, e.clientY);
+ 		pic.style.left=e.clientX-length.x;
+ 		pic.style.top=e.clientX-length.y;
+ 		isMouseDown = true;
+ 	}
+</script> 
+</head> 
+<body> 
+	<img src="images/2.jpg" width="430" id="pic">
+</body> 
+</html> 
