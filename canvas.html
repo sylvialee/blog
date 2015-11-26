@@ -26,18 +26,20 @@
 		})
 
 		var initScale=1;
-		var currentScale;
-
+		var currentScale,picW;
+		touch.on("#pic", "pinchend", function(ev){
+			picW = this.style.width;
+		});
 		touch.on("#pic", "pinch", function(ev){
 			
 			currentScale = ev.scale - 1;
 			currentScale = initScale+currentScale;
 			currentScale = currentScale<0.5 ? 0.5 : currentScale ;
-			this.style.transform = 'scale(' + currentScale +')';
+			this.style.width =  picW*currentScale;
 		})
 
 		touch.on("#pic", "pinchend", function(ev){
-			initScale = currentScale;
+			initScale = 1;
 		});
 
 		var dx, dy;
