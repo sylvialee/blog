@@ -33,7 +33,7 @@
 			currentScale = ev.scale - 1;
 			currentScale = initScale+currentScale;
 			currentScale = currentScale<0.5 ? 0.5 : currentScale ;
-			this.style.transform = 'scale(' + currentScale +')';
+			this.style.transform = this.style.transform +' scale(' + currentScale +')';
 		})
 
 		touch.on("#pic", "pinchend", function(ev){
@@ -47,7 +47,7 @@
 			dy = dy || 0;
 			var offx = dx + ev.x + 'px';
 			var offy = dy + ev.y + 'px';
-			this.style.transform = 'translate3d(' + offx + ',' + offy + ',0)';
+			this.style.transform = this.style.transform + ' translate3d(' + offx + ',' + offy + ',0)';
 		});
 		touch.on("#pic", 'dragend', function(ev){
 			dx += ev.x;
