@@ -29,6 +29,18 @@
 			.zoomer.dark_zoomer img { box-shadow: 0 0 5px rgba(0, 0, 0, 0.5); }
 		</style>
 
+	</head>
+	<body class="gridlock demo">
+		
+		<article class="row page">
+			<div class="mobile-full tablet-full desktop-8 desktop-push-2">
+				
+				<div class="zoomer_wrapper zoomer_basic">
+					<img id="pic" src="images/nasa-bw-1.jpg">
+				</div>
+				<input type="button" value="提交参数" onclick="getData()">
+			</div>
+		</article>
 		<script>
 			$(document).ready(function() {
 				$(".zoomer_basic").zoomer();
@@ -36,19 +48,16 @@
 					$(".zoomer_wrapper").zoomer("resize");
 				});
 			});
-		</script>
-	</head>
-	<body class="gridlock demo">
-		
-		<article class="row page">
-			<div class="mobile-full tablet-full desktop-8 desktop-push-2">
-				
-				<h5>Demo</h5>
-				<div class="zoomer_wrapper zoomer_basic">
-					<img src="images/nasa-bw-1.jpg">
-				</div>
 
-			</div>
-		</article>
+			var getData = function(){
+				var a = document.getElementById("pic");
+				var w = a.clientWidth,
+					h = a.clientHeight,
+					l = a.offsetX,
+					t = a.offsetY;
+
+				alert("width:"+w+" height:"+h+" left:"+l+" top:"+t);
+			}
+		</script>
 	</body>
 </html>
