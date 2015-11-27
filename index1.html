@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+
+		<title>Zoomer Demo</title>
+
+		<!--<link href="http://fonts.googleapis.com/css?family=Lato:300,400,900" rel="stylesheet" type="text/css" media="all">-->
+		<!--<link href="http://fonts.googleapis.com/css?family=PT+Mono" rel="stylesheet" type="text/css">-->
+		<link href="stylesheets/demo.css" rel="stylesheet" type="text/css" media="all">
+
+		<!--[if LTE IE 8]>
+			<link href="http://formstone.it/css/demo.ie.css" rel="stylesheet" type="text/css" media="all">
+		<![endif]-->
+
+		<script src="javascripts/jquery-1.9.1.min"></script>
+		<script src="javascripts/demo.js"></script>
+
+		<script src="javascripts/jquery.fs.zoetrope.min.js"></script>
+
+		<link href="stylesheets/jquery.fs.zoomer.css" rel="stylesheet" type="text/css" media="all">
+		<script src="javascripts/jquery.fs.zoomer.js"></script>
+
+		<style>
+			.zoomer_wrapper { border: 1px solid #ddd; border-radius: 3px; height: 500px; margin: 10px 0; overflow: hidden; width: 100%; }
+
+			.zoomer.dark_zoomer { background: #333 url(images/zoomer-bg-dark.png) repeat center; }
+			.zoomer.dark_zoomer img { box-shadow: 0 0 5px rgba(0, 0, 0, 0.5); }
+		</style>
+
+		<script>
+			$(document).ready(function() {
+				$(".zoomer_basic").zoomer();
+				$(window).on("resize", function(e) {
+					$(".zoomer_wrapper").zoomer("resize");
+				});
+			});
+		</script>
+	</head>
+	<body class="gridlock demo">
+		
+		<article class="row page">
+			<div class="mobile-full tablet-full desktop-8 desktop-push-2">
+				
+				<h5>Demo</h5>
+				<div class="zoomer_wrapper zoomer_basic">
+					<img src="images/nasa-bw-1.jpg">
+				</div>
+
+			</div>
+		</article>
+	</body>
+</html>
