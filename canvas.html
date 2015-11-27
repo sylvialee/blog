@@ -10,8 +10,11 @@
 	<title>canvas</title>
 </head>
 <body>
-
-	<img src="images/1.png" id="pic" draggable="true" style="width:300px;position:absolute;">
+	
+	<div id="box">
+		<img src="images/1.png" id="pic" draggable="true" style="width:300px;position:absolute;">
+	</div>
+	
 
 
 
@@ -40,19 +43,19 @@
 			initScale = currentScale;
 		});
 
-		/*var dx, dy;
+		var dx, dy;
 
-		touch.on("#pic", "drag", function(ev){
+		touch.on("#box", "drag", function(ev){
 			dx = dx || 0;
 			dy = dy || 0;
 			var offx = dx + ev.x + 'px';
 			var offy = dy + ev.y + 'px';
 			this.style.transform = this.style.transform + ' translate3d(' + offx + ',' + offy + ',0)';
 		});
-		touch.on("#pic", 'dragend', function(ev){
+		touch.on("#box", 'dragend', function(ev){
 			dx += ev.x;
 			dy += ev.y;
-		})*/
+		})
 
 
 		
