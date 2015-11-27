@@ -53,7 +53,7 @@
 			dy = dy || 0;
 			var offx = dx + ev.x + 'px';
 			var offy = dy + ev.y + 'px';
-			this.style.transform = this.style.transform + ' translate3d(' + offx + ',' + offy + ',0)';
+			this.style.transform = ' translate3d(' + offx + ',' + offy + ',0)';
 		});
 		touch.on("#box", 'dragend', function(ev){
 			dx += ev.x;
