@@ -14,7 +14,7 @@
 			<link href="http://formstone.it/css/demo.ie.css" rel="stylesheet" type="text/css" media="all">
 		<![endif]-->
 
-		<script src="javascripts/jquery-1.9.1.min"></script>
+		<script src="javascripts/jquery-1.9.1.min.js"></script>
 		<script src="javascripts/demo.js"></script>
 
 		<script src="javascripts/jquery.fs.zoetrope.min.js"></script>
@@ -50,13 +50,10 @@
 			});
 
 			var getData = function(){
-				var a = document.getElementById("pic");
-				var w = a.offsetWidth ,
-					h = a.offsetWidth ,
-					l = a.offsetX,
-					t = a.offsetY;
+				var a = $(".zoomer-positioner").css("transform");
+				var b = $(".zoomer-holder").css("transform").split(scale)[1];
 
-				alert("width:"+w+" height:"+h+" left:"+l+" top:"+t);
+				alert(a + '  ' + b);
 			}
 		</script>
 	</body>
