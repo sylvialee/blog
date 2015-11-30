@@ -21,46 +21,46 @@
 	<script type="text/javascript" src="preview.js"></script>
 	<script type="text/javascript">
 
-		var target=document.getElementById("pic");
-		target.style.transition="all ease 0.05s";
-
-		touch.on("#pic", "touchstart", function(ev){
+		var goodsImg = document.getElementById("pic");
+		touch.on(goodsImg, 'touchstart', function(ev){
 			ev.preventDefault();
-		})
-		touch.on("#box", "touchstart", function(ev){
-			ev.preventDefault();
-		})
-
-		var initScale=1;
-		var currentScale;
-
-		touch.on("#pic", "pinch", function(ev){
-			
+		});
+		// 双指缩放结束
+		var initialScale = 1;
+		var currentScale,target=0;
+		touch.on(goodsImg, 'pinch', function(ev){
 			currentScale = ev.scale - 1;
-			currentScale = initScale+currentScale;
-			currentScale = currentScale<0.5 ? 0.5 : currentScale ;
-			this.style.transform ='scale(' + currentScale +')';
-		})
-
-		touch.on("#pic", "pinchend", function(ev){
-			initScale = currentScale;
+			currentScale = initialScale + currentScale;
+			currentScale = currentScale > 2 ? 2 : currentScale;
+			currentScale = currentScale < 1 ? 1 : currentScale;
+			// 放大
+			$(this).css('transform' , "matrix("+currentScale+",0,0,"+currentScale+",0,0"+")");
+		});
+		touch.on(goodsImg, 'pinchend', function(ev){
+			initialScale = currentScale;
+			//测试输出initialScale,当initialScale>1的时候。执行拖动，否则不拖动(取消绑定拖拖动事件)
+			return initialScale;
 		});
 
-		var dx, dy;
-
-		touch.on("#box", "drag", function(ev){
-			dx = dx || 0;
-			dy = dy || 0;
-			var offx = dx + ev.x + 'px';
-			var offy = dy + ev.y + 'px';
-			this.style.transform = ' translate3d(' + offx + ',' + offy + ',0)';
-		});
-		touch.on("#box", 'dragend', function(ev){
-			dx += ev.x;
-			dy += ev.y;
-		})
-
-
+		// 拖动
+  // 绑定拖动事件
+     touch.on(goodsImg, 'pinch', function(ev){
+          ev.preventDefault();
+        });
+      var dragx,dragy;
+      touch.on(goodsImg,"drag", function(ev) {
+        console.log("绑定拖动事件");
+        dragx = dragx || 0;
+        dragy = dragy || 0;
+        var offx = dragx+ev.x;
+        var offy = dragy+ev.y;
+          $(this).css('transform',"matrix("+initialScale+",0,0,"+initialScale+","+offx+","+offy+")");
+      });
+      touch.on(goodsImg,"dragend",function(ev){
+        console.log("拖动完毕");
+        dragx+=ev.x;
+        dragy+=ev.y;
+      });
 		
 	</script>
 </body>
