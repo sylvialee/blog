@@ -11,7 +11,7 @@
 </head>
 <body>
 	
-	<div id="box">
+	<div id="box" style="position:fixed;">
 		<img src="images/1.png" id="pic" draggable="true" style="width:300px;position:absolute;">
 	</div>
 	
@@ -45,7 +45,7 @@
 
 		// 拖动
   // 绑定拖动事件
-     touch.on(goodsImg, 'pinch', function(ev){
+     touch.on(goodsImg, 'drag', function(ev){
           ev.preventDefault();
         });
       var dragx,dragy;
