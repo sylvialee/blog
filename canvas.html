@@ -35,7 +35,7 @@
 			currentScale = currentScale > 2 ? 2 : currentScale;
 			currentScale = currentScale < 1 ? 1 : currentScale;
 			// 放大
-			$(this).css('transform' , "matrix("+currentScale+",0,0,"+currentScale+",0,0"+")");
+			$(this).css('transform' , "matrix("+currentScale+",0,0,"+currentScale+","+dragx+","+dragy+")");
 		});
 		touch.on(goodsImg, 'pinchend', function(ev){
 			initialScale = currentScale;
@@ -44,10 +44,10 @@
 		});
 
 		// 拖动
-  // 绑定拖动事件
-     touch.on(goodsImg, 'drag', function(ev){
-          ev.preventDefault();
-        });
+	  // 绑定拖动事件
+	     touch.on(goodsImg, 'drag', function(ev){
+	          ev.preventDefault();
+	        });
       var dragx,dragy;
       touch.on(goodsImg,"drag", function(ev) {
         console.log("绑定拖动事件");
