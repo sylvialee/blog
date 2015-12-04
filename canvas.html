@@ -82,8 +82,10 @@
 			data4 = 0;
 			data6 = 0;
 		}
+		var x = data4 + 150*(data1 - 1);
+		var y = data6 + 150*(data1 - 1);
 		context.drawImage(bg, 0, 0, 300, 150 );
-		context.drawImage(goodsImg, data4, data6, 150*data1, 150*data1);
+		context.drawImage(goodsImg, x, y, 150*data1, 150*data1);
 	}
 	</script>
 </body>
