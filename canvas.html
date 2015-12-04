@@ -82,8 +82,8 @@
 			data4 = 0;
 			data6 = 0;
 		}
-		var x = data4 + 150*(data1 - 1);
-		var y = data6 + 150*(data1 - 1);
+		var x = data4 + 150*(1 - data1)/2;
+		var y = data6 + 150*(1 - data1)/2;
 		context.drawImage(bg, 0, 0, 300, 150 );
 		context.drawImage(goodsImg, x, y, 150*data1, 150*data1);
 	}
