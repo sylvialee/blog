@@ -82,8 +82,8 @@
 			data6 = 0;
 		}
 		alert( "scale:" + data1 + ", x:" + data4 + ", y:" + data6)
-		var x = data4 + (150*(1 - data1))/2;
-		var y = data6 + (150*(1 - data1))/2;
+		var x = data4 + parseFloat((150*(1 - data1))/2);
+		var y = data6 + parseFloat((150*(1 - data1))/2);
 		alert("x:" + x + ", y:" + y);
 		context.drawImage(bg, 0, 0, 300, 150 );
 		context.drawImage(goodsImg, x, y, 150*data1, 150*data1);
