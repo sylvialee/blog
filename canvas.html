@@ -14,9 +14,9 @@
 	<div id="box" style="position:fixed;height:1000px;width:100%;left:0;top:0;">
 		<img src="images/1.png" id="pic" style="width:50%;position:absolute;">
 		<img src="images/2.jpg" id="bg" style="width:100%" >
-		<input type="button" value="保存" onclick="convertToCanvas()" style="margin-top:250px;">
+		<input type="button" value="保存" onclick="convertToCanvas()" style="margin-top:50px;">
 
-		<canvas id="canvas" width="300" height="150"></canvas>
+		<canvas id="canvas" width="400" height="200"></canvas>
 	</div>
 
 	
@@ -82,8 +82,8 @@
 			data4 = 0;
 			data6 = 0;
 		}
-		context.drawimage(bg, 0, 0, 300, 150 );
-		context.drawimage(goodsImg, data4, data6, 300*data1, 300*data1);
+		context.drawImage(bg, 0, 0, 300, 150 );
+		context.drawImage(goodsImg, data4, data6, 300*data1, 300*data1);
 	}
 	</script>
 </body>
