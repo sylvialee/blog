@@ -68,23 +68,23 @@
 		
       var canvas = document.getElementById("canvas");
       var context = canvas.getContext("2d")
-		var convertToCanvas = function(){
-			alert(goodsImg.style.transform)
-			var data6,data,data1;
-			if(goodsImg.style.transform){
-				data = goodsImg.style.transform.split(",");
-				data4 = data[4];
-				data1 = data[0].split("(")[1];
-				data6 = data[5].split(")")[0];				
-			}else{
-				data = 0;
-				data1 = 0;
-				data4 = 0;
-				data6 = 0;
-			}
-			ctx.drawimage(bg, 0, 0, 300, 150 );
-			ctx.drawimage(goodsImg, data4, data6, 300*data1, 300*data1);
+	var convertToCanvas = function(){
+		alert(goodsImg.style.transform)
+		var data6,data,data1;
+		if(goodsImg.style.transform){
+			data = goodsImg.style.transform.split(",");
+			data4 = data[4];
+			data1 = data[0].split("(")[1];
+			data6 = data[5].split(")")[0];				
+		}else{
+			data = 0;
+			data1 = 0;
+			data4 = 0;
+			data6 = 0;
 		}
+		context.drawimage(bg, 0, 0, 300, 150 );
+		context.drawimage(goodsImg, data4, data6, 300*data1, 300*data1);
+	}
 	</script>
 </body>
 </html>
