@@ -90,17 +90,13 @@
 
 
 	<script type="text/javascript">
-	$(function progressbar(){
-		var w = $(".graph").width();
-		setTimeout(function(){$('#bar').animate({width:w});},500);
-		setTimeout(function(){$(".flipbook").show();},1000);
-	});
 	//屏蔽ios下上下弹性
 	$(window).on('scroll.elasticity', function (e) {
 	  e.preventDefault();
 	}).on('touchmove.elasticity', function (e) {
 	  e.preventDefault();
 	});
+
 	function loadApp(){
 		var w = $(window).width();
 		var h = $(window).height();
@@ -120,7 +116,27 @@
 			}
 		});
 	}
-	setTimeout(loadApp, 2000);
+
+	for (var t=0; t<$('img').length; t++) {
+		var image=new Image();
+		image.src=$('img')[t].src;
+		var numt = 0;
+		image.onload=function  () {
+			numt++;
+
+			var Inum=$('img').length;
+			$('#bar').width(Math.round((numt/Inum)*100*$(".graph").width()));
+			if (numt>=($('img').length)) {
+				//setTimeout(function (){
+					$(".flipbook").show();
+					$('#loading').hide();
+					loadApp();		
+				//},1000)
+			}
+		}
+	}
+	
+	//setTimeout(loadApp, 000);
 
 	//分享到朋友圈，调用接口
 	wx.config({
