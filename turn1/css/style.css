@@ -1,6 +1,37 @@
 body{
 	background: #efebde;	
 }
+
+.loadinner{
+	position:absolute;
+	width:100%;height:100%;
+	left:0;
+	top: 0;
+	text-align:center;
+	font-size:14px;
+	line-height:20px;
+	padding-top: 200px;
+}
+.graph{
+	background:#6c6c6c;
+	height: 3px;
+	width:70%;
+	margin:10px auto 0 auto;
+	border-radius: 1px;
+	overflow: hidden;
+}
+#bar{
+	display:block;
+	background:green;
+	height:3px;
+	width:10px;
+	border-radius: 1px;
+	overflow: hidden;
+}
+
+
+
+
 .sectionTurn{
 	position: relative;
 }
@@ -15,9 +46,9 @@ body{
 .p1-1{
 	opacity: 0;
 	left: 50%;
-	margin-left: -170px;
+	margin-left: -85px;
 	top: 50%;
-	margin-top: 100px;	
+	margin-top: 70px;	
 }
 .active .p1-1{
 	animation:fadeIn 1.5s;
@@ -27,42 +58,58 @@ body{
 .p1-2{
 	opacity: 0;
 	left: 50%;
-	margin-left: -93px;
+	margin-left: -94px;
 	top: 50%;
-	margin-top: -100px;
+	margin-top: -20px;
 }
 .active .p1-2{
 	animation:fadeToTop1 1s;
 	animation-fill-mode:forwards;
 	animation-delay:0.8s;
 }
+@keyframes fadeToTop1{
+	from{opacity: 0; margin-top: -20px;}
+	to{opacity: 1; margin-top: -150px;}
+}
+
 .p1-3{
 	opacity: 0;
 	left: 50%;
-	margin-left: -93px;
+	margin-left: -45px;
 	top: 50%;
-	margin-top: -30px;
+	margin-top: 0px;
 }
 .active .p1-3{
 	animation:fadeToTop2 1s;
 	animation-fill-mode:forwards;
 	animation-delay:0.8s;
 }
+@keyframes fadeToTop2{
+	from{opacity: 0; margin-top: 0px;}
+	to{opacity: 1; margin-top: -60px;}
+}
+
+
 .p1-4{
 	opacity: 0;
 	left: 50%;
-	margin-left: -393px;
+	margin-left: -160px;
 	top: 50%;
-	margin-top: -230px;
+	margin-top: -150px;
 }
 .active .p1-4{
 	animation:fadeToLeft 1s;
 	animation-fill-mode:forwards;
 }
+@keyframes fadeToLeft{
+	from{opacity: 0; margin-left: -160px;margin-top: -150px;}
+	to{opacity: 1; margin-left: -140px;margin-top: -80px;}
+}
+
 .p1-5{
 	opacity: 0;
 	left: 50%;
-	margin-left: 193px;
+	margin-left: 160px;
 	top: 50%;
 	margin-top: 130px;
 }
@@ -70,20 +117,23 @@ body{
 	animation:fadeToRight 1s;
 	animation-fill-mode:forwards;
 }
+@keyframes fadeToRight{
+	from{ opacity: 0; margin-left: 160px;margin-top:130px; }
+	to{	opacity:1 ;margin-left: 10px;margin-top: -80px;}
+}
 
 .p2{
 	background:url(../images/2.jpg) center center no-repeat #efebde;
 	background-size:100% 
 }
 .p2 img{
-	width: 60%;
 }
 .p2-1{
 	opacity: 0;
 	left: 50%;
 	margin-left: 100px;
 	top: 50%;
-	margin-top: -300px;
+	margin-top: -100px;
 }
 .active .p2-1{
 	animation:fadeToRight1 1s;
@@ -91,14 +141,14 @@ body{
 }
 @keyframes fadeToRight1{
 	from{opacity: 0; margin-left: 100px;}
-	to{opacity: 1; margin-left:-50px; }
+	to{opacity: 1; margin-left:-20px; }
 }
 .p2-2{
 	opacity: 0;
 	left: 50%;
-	margin-left: -280px;
+	margin-left: -120px;
 	top: 50%;
-	margin-top: -520px;
+	margin-top: -190px;
 }
 .active .p2-2{
 	animation:fadeIn 1.5s;
@@ -108,33 +158,33 @@ body{
 .p2-3{
 	opacity: 0;
 	left: 50%;
-	margin-left: -700px;
+	margin-left: -400px;
 	top: 50%;
-	margin-top: -150px;
+	margin-top: -30px;
 }
 .active .p2-3{
 	animation:fadeToLeft1 1s;
 	animation-fill-mode:forwards;
 }
 @keyframes fadeToLeft1{
-	from{opacity: 0; margin-left: -700px;}
-	to{opacity: 1; margin-left:-500px; }
+	from{opacity: 0; margin-left: -400px;}
+	to{opacity: 1; margin-left:-180px; }
 }
 
 .p2-4{
 	opacity: 0;
 	left: 50%;
-	margin-left: -644px;
+	margin-left: -180px;
 	top: 50%;
-	margin-top: 180px;
+	margin-top: 100px;
 }
 .active .p2-4{
 	animation:fadeToLeft2 1s;
 	animation-fill-mode:forwards;
 }
 @keyframes fadeToLeft2{
-	from{opacity: 0; margin-left: -644px;}
-	to{opacity: 1; margin-left:-500px; }
+	from{opacity: 0; margin-left: -380px;}
+	to{opacity: 1; margin-left:-180px; }
 }
 
 .p2-5{
@@ -156,15 +206,15 @@ body{
 
 
 .p3-1, .p4-1, .p5-1, .p6-1, .p7-1, .p8-1, .p9-1, .p10-1, .p11-1 {
-	left: 50%;
-	margin-left: -375px;
-	bottom: 28%;
+	left: 0;
+	bottom: 15%;
+	width: 100%;
 }
 .p3-2, .p4-2, .p5-2, .p6-2, .p7-2, .p8-2, .p9-2, .p10-2, .p11-2{
-	left: 50%;
-	margin-left: -375px;
-	bottom: 28%;
+	left: 0%;
+	bottom: 15%;
 	opacity: 0;
+	width: 100%;
 }
 .active .p3-2, .active .p4-2, .active .p5-2, .active .p6-2, .active .p7-2, .active .p8-2, .active .p9-2, .active .p10-2, .active .p11-2{
 	animation:fadeIn 1.5s;
@@ -178,13 +228,12 @@ body{
 	background-size:100% 
 }
 .p12 img{
-	width: 40%;
 }
-.p12 .p12-1{
+.sectionTurn .p12-1{
 	width: 60%;
-	left:-40px;
+	left:-10px;
 	top: 50%;
-	margin-top: -200px; 
+	margin-top: -50px; 
 	opacity: 0;
 }
 .active .p12-1{
@@ -192,9 +241,9 @@ body{
 	animation-fill-mode:forwards;
 }
 .p12-2{
-	left:-200px;
+	left:-100px;
 	top: 50%;
-	margin-top: 150px; 
+	margin-top: 55px; 
 	opacity: 0;
 }
 .active .p12-2{
@@ -202,14 +251,14 @@ body{
 	animation-fill-mode:forwards;
 }
 @keyframes fadeToLeft3{
-	from{left: -200px;opacity: 0;}
-	to{left: 10px;opacity: 1;}
+	from{left: -100px;opacity: 0;}
+	to{left: 0px;opacity: 1;}
 }
 .p12-3{
 	left:50%;
-	margin-left: 300px;
+	margin-left: 160px;
 	top: 50%;
-	margin-top: -30px; 
+	margin-top: 10px; 
 	opacity: 0;
 }
 .active .p12-3{
@@ -217,14 +266,14 @@ body{
 	animation-fill-mode:forwards;
 }
 @keyframes fadeToRight2{
-	from{margin-left: 300px;opacity: 0;}
-	to{margin-left: -60px;opacity: 1;}
+	from{margin-left: 160px;opacity: 0;}
+	to{margin-left: -10px;opacity: 1;}
 }
 .p12-4{
 	left:50%;
-	margin-left: 300px;
+	margin-left: 160px;
 	top: 50%;
-	margin-top: -360px; 
+	margin-top: -140px; 
 	opacity: 0;
 }
 .active .p12-4{
@@ -232,8 +281,8 @@ body{
 	animation-fill-mode:forwards;
 }
 @keyframes fadeToRight3{
-	from{margin-left: 300px;opacity: 0;}
-	to{margin-left: 140px;opacity: 1;}
+	from{margin-left: 160px;opacity: 0;}
+	to{margin-left: 0px;opacity: 1;}
 }
 
 .p13{
@@ -241,10 +290,10 @@ body{
 	background-size:100% 
 }
 .p13-1{
-	left:50%;
-	margin-left: -375px;
+	width: 100%;
+	left:0;
 	top: 50%;
-	margin-top: -280px; 
+	margin-top: -100px; 
 	opacity: 0;
 }
 .active .p13-1{
@@ -252,8 +301,8 @@ body{
 	animation-fill-mode:forwards;
 }
 .p13-2{
-	left:50%;
-	margin-left: -375px;
+	width: 100%;
+	left:0;
 	top: 50%;
 	margin-top: 0px; 
 	opacity: 0;
@@ -275,23 +324,7 @@ body{
 	from{ opacity: 1; }
 	to{	opacity: 0;	}
 }
-@keyframes fadeToTop1{
-	from{opacity: 0; margin-top: -100px;}
-	to{opacity: 1; margin-top: -240px;}
-}
-@keyframes fadeToTop2{
-	from{opacity: 0; margin-top: -30px;}
-	to{opacity: 1; margin-top: -150px;}
-}
-@keyframes fadeToLeft{
-	from{opacity: 0; margin-left: -393px;margin-top: -230px;}
-	to{opacity: 1; margin-left: -280px;margin-top: -200px;}
-}
 
-@keyframes fadeToRight{
-	from{ opacity: 0; margin-left: 193px;margin-top:130px; }
-	to{	opacity:1 ;margin-left: 10px;margin-top: -200px;}
-}
 
 @keyframes toLeft{
 	from{ right: ;}

@@ -2,16 +2,26 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<meta name="viewport" sectionTurn="width=device-width, init-scale=1, user-scalable=no">
+	<meta name="viewport" content="width=device-width, init-scale=1, user-scalable=no">
+	<meta name="format-detection"content="telephone=no">
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
 
 	<title>turn.js</title>
 	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" type="text/css" href="css/turn.css">
     <script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
 	<script type="text/javascript" src="js/jquery.min.1.7.js"></script>
-	<script type="text/javascript" src="js/modernizr.2.5.3.min.js"></script>
+	<script type="text/javascript" src="js/turn.js"></script>
 </head>
 <body>
-	<div id="flipBook">
+<div id="loading" style="background:#efebde;height:100%;">
+	<div class="loadinner">
+		<div class="graph"> <span id="bar"></span></div>
+		<div style="color:#b4b4b4;height:50px;line-height:50px;font-size:30px;">页面正在加载……</div>
+	</div>
+</div>
+	<div class="flipbook" style="none;">
 		<div class="sectionTurn" style="">
 			<img class="p1-1" src="images/1-1.png">
 			<img class="p1-2" src="images/1-2.png">
@@ -76,36 +86,37 @@
 
 
 
-	<script type="text/javascript" src="js/turnpage.js"></script>
 	<script type="text/javascript">
-
-
+	$(function progressbar(){
+		var w = $(".graph").width();
+		setTimeout(function(){$('#bar').animate({width:w});},500);
+		setTimeout(function(){$(".flipbook").show();},1000);
+	});
+	//屏蔽ios下上下弹性
+	$(window).on('scroll.elasticity', function (e) {
+	  e.preventDefault();
+	}).on('touchmove.elasticity', function (e) {
+	  e.preventDefault();
+	});
 	function loadApp(){
 		var w = $(window).width();
 		var h = $(window).height();
-		$("#flipBook").turn({
+		$(".flipbook").turn({
 			width: w,
 			height: h,
-			acceleration:true,
-			elevation:100,
+			elevation:50,
 			gradients:true,
 			display:"single",
 			autoCenter:true,
 			when: {
 				turned:function(e, page){
-					$("#flipBook .sectionTurn").removeClass("active");
-					$("#flipBook .p" + page).addClass("active");
+					$(".flipbook .sectionTurn").removeClass("active");
+					$(".flipbook .p" + page).addClass("active");
 				}
 			}
 		});
 	}
-	yepnope({
-		test : Modernizr.csstransforms,
-		yep: ['js/turn.js'],
-		nope: ['js/turn.html4.min.js'],
-		both: ['css/turn.css'],
-		complete: loadApp
-	});
+	setTimeout(loadApp, 1000);
 
 	//分享到朋友圈，调用接口
 	wx.config({
