@@ -128,9 +128,12 @@
 			$('#bar').width((numt/Inum)*($(".graph").width()));
 			//alert($('#bar').width());
 			if (numt>=($('img').length)) {
-				$(".flipbook").show();
-				$('#loading').hide();
-				loadApp();		
+				setTimeout(function(){
+					$(".flipbook").show();
+					$('#loading').hide();
+					loadApp();
+				}, 1000);
+						
 			}
 		}
 	}
