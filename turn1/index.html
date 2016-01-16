@@ -7,7 +7,7 @@
 	<meta name="apple-mobile-web-app-capable" content="yes" />
 	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
 
-	<title>turn.js</title>
+	<title>青春纪念册</title>
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<link rel="stylesheet" type="text/css" href="css/turn.css">
     <script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
@@ -127,11 +127,9 @@
 			var Inum=$('img').length;
 			$('#bar').width(Math.round((numt/Inum)*100*$(".graph").width()));
 			if (numt>=($('img').length)) {
-				//setTimeout(function (){
-					$(".flipbook").show();
-					$('#loading').hide();
-					loadApp();		
-				//},1000)
+				$(".flipbook").show();
+				$('#loading').hide();
+				loadApp();		
 			}
 		}
 	}
