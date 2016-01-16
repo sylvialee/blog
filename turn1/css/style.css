@@ -134,6 +134,7 @@ body{
 	margin-left: 100px;
 	top: 50%;
 	margin-top: -100px;
+	width: 240px;
 }
 .active .p2-1{
 	animation:fadeToRight1 1s;
@@ -162,6 +163,7 @@ body{
 	margin-left: -400px;
 	top: 50%;
 	margin-top: -30px;
+	width: 200px;
 }
 .active .p2-3{
 	animation:fadeToLeft1 1s;
@@ -178,6 +180,7 @@ body{
 	margin-left: -180px;
 	top: 50%;
 	margin-top: 100px;
+	width: 250px;
 }
 .active .p2-4{
 	animation:fadeToLeft2 1s;
