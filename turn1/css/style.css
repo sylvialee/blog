@@ -246,6 +246,7 @@ body{
 	animation-fill-mode:forwards;
 }
 .p12-2{
+	width: 175px;
 	left:-100px;
 	top: 50%;
 	margin-top: 55px; 
@@ -260,6 +261,7 @@ body{
 	to{left: 0px;opacity: 1;}
 }
 .p12-3{
+	width: 200px;
 	left:50%;
 	margin-left: 160px;
 	top: 50%;
@@ -275,6 +277,7 @@ body{
 	to{margin-left: -10px;opacity: 1;}
 }
 .p12-4{
+	width: 170px;
 	left:50%;
 	margin-left: 160px;
 	top: 50%;
