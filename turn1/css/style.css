@@ -9,7 +9,7 @@ body{
 	z-index: 2;
 }
 .p1{
-	background:url(../images/1.jpg) center top no-repeat #efebde;
+	background:url(../images/1.jpg) center center no-repeat #efebde;
 	background-size:100% 
 }
 .p1-1{
@@ -72,7 +72,7 @@ body{
 }
 
 .p2{
-	background:url(../images/2.jpg) center top no-repeat #efebde;
+	background:url(../images/2.jpg) center center no-repeat #efebde;
 	background-size:100% 
 }
 .p2 img{
@@ -150,7 +150,7 @@ body{
 }
 
 .p3, .p4, .p5, .p6, .p7, .p8, .p9, .p10, .p11{
-	background:url(../images/3.jpg) center top no-repeat #efebde;
+	background:url(../images/3.jpg) center center no-repeat #efebde;
 	background-size:100% 
 }
 
@@ -174,7 +174,7 @@ body{
 
 
 .p12{
-	background:url(../images/12.jpg) center top no-repeat #efebde;
+	background:url(../images/12.jpg) center center no-repeat #efebde;
 	background-size:100% 
 }
 .p12 img{
@@ -237,7 +237,7 @@ body{
 }
 
 .p13{
-	background:url(../images/13.jpg) center top no-repeat #efebde;
+	background:url(../images/13.jpg) center center no-repeat #efebde;
 	background-size:100% 
 }
 .p13-1{
