@@ -125,7 +125,8 @@
 			numt++;
 
 			var Inum=$('img').length;
-			$('#bar').width(Math.round((numt/Inum)*100*$(".graph").width()));
+			$('#bar').width((numt/Inum)*($(".graph").width()));
+			alert($('#bar').width());
 			if (numt>=($('img').length)) {
 				$(".flipbook").show();
 				$('#loading').hide();
