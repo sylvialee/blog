@@ -177,7 +177,7 @@ body{
 .p2-4{
 	opacity: 0;
 	left: 50%;
-	margin-left: -180px;
+	margin-left: -380px;
 	top: 50%;
 	margin-top: 100px;
 	width: 250px;
@@ -235,10 +235,10 @@ body{
 .p12 img{
 }
 .sectionTurn .p12-1{
-	width: 60%;
+	width: 200px;
 	left:-10px;
 	top: 50%;
-	margin-top: -50px; 
+	margin-top: -60px; 
 	opacity: 0;
 }
 .active .p12-1{
