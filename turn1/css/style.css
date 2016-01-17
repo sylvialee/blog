@@ -357,13 +357,13 @@ to{
 	.p3-1, .p4-1, .p5-1, .p6-1, .p7-1, .p8-1, .p9-1, .p10-1, .p11-1 {
 		left: 50%;
 		margin-left: -200px;
-		bottom: 15%;
+		bottom: 25%;
 		width: 400px;
 	}
 	.p3-2, .p4-2, .p5-2, .p6-2, .p7-2, .p8-2, .p9-2, .p10-2, .p11-2{
 		left: 50%;
 		margin-left: -200px;
-		bottom: 15%;
+		bottom: 25%;
 		opacity: 0;
 		width: 400px;
 	}
