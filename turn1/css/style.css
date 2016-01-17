@@ -30,6 +30,36 @@ body{
 }
 
 
+#yin{
+	position: fixed;
+	z-index: 900;
+	right:5%;
+	top:1%;
+	width:20px;
+	height:20px;
+	overflow: hidden;
+	-webkit-animation:zhuan1 infinite;
+	
+	-webkit-animation-duration:2s;
+}
+#yin img{
+	height: 20px;
+}
+/*.music{
+	position: absolute;z-index: 998; 
+	top: 1%;right: 11%;
+	width:16%;height: 20px;margin-top: 3px;
+	background: url(../images/music.png) no-repeat center top;
+	background-size:100% auto;
+}
+*/
+@-webkit-keyframes zhuan1
+{
+to{
+	/*-webkit-transform: rotate(360deg);*/
+}
+
+}
 
 
 .sectionTurn{
@@ -211,7 +241,7 @@ body{
 
 
 .p3-1, .p4-1, .p5-1, .p6-1, .p7-1, .p8-1, .p9-1, .p10-1, .p11-1 {
-	left: 0;
+	left: 0%;
 	bottom: 15%;
 	width: 100%;
 }
@@ -221,6 +251,7 @@ body{
 	opacity: 0;
 	width: 100%;
 }
+
 .active .p3-2, .active .p4-2, .active .p5-2, .active .p6-2, .active .p7-2, .active .p8-2, .active .p9-2, .active .p10-2, .active .p11-2{
 	animation:fadeIn 1.5s;
 	animation-fill-mode:forwards;
@@ -321,6 +352,38 @@ body{
 	animation-delay:0.8s;
 }
 
+/*pad样式*/
+@media(min-width:450px){
+	.p3-1, .p4-1, .p5-1, .p6-1, .p7-1, .p8-1, .p9-1, .p10-1, .p11-1 {
+		left: 50%;
+		margin-left: -200px;
+		bottom: 15%;
+		width: 400px;
+	}
+	.p3-2, .p4-2, .p5-2, .p6-2, .p7-2, .p8-2, .p9-2, .p10-2, .p11-2{
+		left: 50%;
+		margin-left: -200px;
+		bottom: 15%;
+		opacity: 0;
+		width: 400px;
+	}
+	.p13-1{
+		width: 400px;
+		left:50%;
+		margin-left: -200px;
+		top: 50%;
+		margin-top: -120px; 
+		opacity: 0;
+	}
+	.p13-2{
+		width: 400px;
+		left:50%;
+		margin-left: -200px;
+		top: 50%;
+		margin-top: 0px; 
+		opacity: 0;
+	}
+}
 
 /*动画交互效果*/
 @keyframes fadeIn{

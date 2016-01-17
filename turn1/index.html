@@ -12,6 +12,7 @@
 	<link rel="stylesheet" type="text/css" href="css/turn.css">
     <script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
 	<script type="text/javascript" src="js/jquery.min.1.7.js"></script>
+	<script type="text/javascript" src="js/zepto.min.js"></script>
 	<script type="text/javascript" src="js/turn.js"></script>
 </head>
 <body>
@@ -21,7 +22,14 @@
 		<div style="color:#b4b4b4;height:50px;line-height:50px;font-size:30px;">页面正在加载……</div>
 	</div>
 </div>
-
+<div id='yin'>
+  <img src="images/yin.png" alt="">
+</div>
+<!-- <div class="music">
+</div> -->
+<div style='display:none'>
+  <audio src="music.mp3" controls loop="loop" autoplay="autoplay" hidden='true' style="position:absolute" id='myaudio'>您的浏览器不支持audio</audio>
+</div>
 <div class="flipbook-viewport">
 	<div class="container">
 	<div class="flipbook" style="none;">
@@ -95,8 +103,8 @@
 	<img src="images/12.jpg">
 	<img src="images/13.jpg">
 </div>
-
 	<script type="text/javascript">
+	$('audio')[0].pause();
 	//屏蔽ios下上下弹性
 	$(window).on('scroll.elasticity', function (e) {
 	  e.preventDefault();
@@ -123,7 +131,24 @@
 			}
 		});
 	}
+	$('#yin img')[0].addEventListener('touchstart',touchStarty,false);
+	var nn=0;
+	function touchStarty () {
+		event.preventDefault();
+		var audio = document.getElementById("myaudio");
+		nn++;
+		if (nn%2) {
+			$('#yin img')[0].style.webkitTransform='translateX(-20px)';
+			audio.pause();
 
+		}else {
+			$('#yin img')[0].style.webkitTransform='translateX(0px)';
+			audio.play();
+		}
+		
+		
+	   
+	}
 	for (var t=0; t<$('img').length; t++) {
 		var image=new Image();
 		image.src=$('img')[t].src;
@@ -136,6 +161,7 @@
 			//alert($('#bar').width());
 			if (numt>=($('img').length)) {
 				setTimeout(function(){
+					$('audio')[0].play();
 					$(".flipbook").show();
 					$('#loading').hide();
 					loadApp();
