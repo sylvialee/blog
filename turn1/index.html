@@ -104,7 +104,7 @@
 	<img src="images/13.jpg">
 </div>
 	<script type="text/javascript">
-	$('audio')[0].pause();
+	
 	//屏蔽ios下上下弹性
 	$(window).on('scroll.elasticity', function (e) {
 	  e.preventDefault();
@@ -112,6 +112,7 @@
 	  e.preventDefault();
 	});
 
+	//载入turn.js翻书插件
 	function loadApp(){
 		var w = $(window).width();
 		var h = $(window).height();
@@ -131,6 +132,9 @@
 			}
 		});
 	}
+
+	//音乐播放
+	$('audio')[0].pause();
 	$('#yin img')[0].addEventListener('touchstart',touchStarty,false);
 	var nn=0;
 	function touchStarty () {
@@ -174,7 +178,7 @@
 	//setTimeout(loadApp, 000);
 
 	//分享到朋友圈，调用接口
-	wx.config({
+	/*wx.config({
 	    debug: false,
 	    appId: wxconfig.appId,
 	    timestamp: wxconfig.timestamp,
@@ -220,7 +224,7 @@
 		        // 用户取消分享后执行的回调函数
 		    }
 		});
-	});
+	});*/
 </script>
 </body>
 </html>
