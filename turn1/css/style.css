@@ -38,6 +38,7 @@ body{
 	width:20px;
 	height:20px;
 	overflow: hidden;
+	font-family: microsoft yahei;
 	-webkit-animation:zhuan1 infinite;
 	
 	-webkit-animation-duration:2s;

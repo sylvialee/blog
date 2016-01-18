@@ -169,7 +169,7 @@
 
 			var Inum=$('img').length;
 			$('#bar').width((numt/Inum)*($(".graph").width()));
-			$("#loadingMsg").text("页面已加载" + (numt/Inum)*100 + "%")
+			$("#loadingMsg").text("页面已加载" + Math.round((numt/Inum)*100) + "%")
 			if (numt>=($('img').length)) {
 				setTimeout(function(){
 					$('audio')[0].play();
