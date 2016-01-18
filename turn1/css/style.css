@@ -367,6 +367,7 @@ to{
 	border: none;
 	color: #fff;
 	font-family: microsoft yahei;
+	-webkit-appearance:none;
 }
 .active .againBtn{
 	animation:fadeIn 1s;
