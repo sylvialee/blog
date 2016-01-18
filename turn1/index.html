@@ -18,7 +18,7 @@
 <div id="loading" style="background:#efebde;height:100%;">
 	<div class="loadinner">
 		<div class="graph"> <span id="bar"></span></div>
-		<div style="color:#b4b4b4;height:50px;line-height:50px;font-size:30px;">页面正在加载……</div>
+		<div id="loadingMsg" style="color:#b4b4b4;height:50px;line-height:50px;font-size:30px;"></div>
 	</div>
 </div>
 <div id='yin'>
@@ -89,6 +89,7 @@
 			<img class="p12-1" src="images/12-1.png">
 		</div>
 		<div class="sectionTurn">
+			<input type="button" class="againBtn" onclick="turnTo(1);" value="再看一遍">
 			<img class="p13-1" src="images/13-1.png">
 			<img class="p13-2" src="images/13-2.png">			
 		</div>
@@ -133,6 +134,10 @@
 				}
 			}
 		});
+
+	}
+	function turnTo(page){
+		$(".flipbook").turn("page", page);
 	}
 
 	//音乐播放
@@ -164,7 +169,7 @@
 
 			var Inum=$('img').length;
 			$('#bar').width((numt/Inum)*($(".graph").width()));
-			//alert($('#bar').width());
+			$("#loadingMsg").text("页面已加载" + (numt/Inum)*100 + "%")
 			if (numt>=($('img').length)) {
 				setTimeout(function(){
 					$('audio')[0].play();

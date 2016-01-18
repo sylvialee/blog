@@ -352,6 +352,27 @@ to{
 	animation-delay:0.8s;
 }
 
+
+.againBtn{
+	position:absolute;
+	left: 50%;
+	width: 180px;
+	margin-left: -90px;
+	height: 35px;
+	background: #e27f0a;
+	font-size: 16px;
+	opacity: 0;
+	top:50%;
+	margin-top: 160px;
+	border: none;
+	color: #fff;
+	font-family: microsoft yahei;
+}
+.active .againBtn{
+	animation:fadeIn 1s;
+	animation-fill-mode:forwards;
+	animation-delay:1.5s;
+}
 /*pad样式*/
 @media(min-width:450px){
 	.p3-1, .p4-1, .p5-1, .p6-1, .p7-1, .p8-1, .p9-1, .p10-1, .p11-1 {
