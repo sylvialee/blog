@@ -356,19 +356,11 @@ to{
 
 .againBtn{
 	position:absolute;
-	left: 50%;
-	width: 180px;
-	margin-left: -90px;
-	height: 35px;
-	background: #e27f0a;
-	font-size: 16px;
+	right: 20px;
+	width: 100px;
+	height: 100px;
 	opacity: 0;
-	top:50%;
-	margin-top: 120px;
-	border: none;
-	color: #fff;
-	font-family: microsoft yahei;
-	-webkit-appearance:none;
+	bottom:10%;
 }
 .active .againBtn{
 	animation:fadeIn 1s;
