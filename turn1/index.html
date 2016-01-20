@@ -195,32 +195,32 @@ if (typeof WeixinJSBridge == "undefined"){
 
 
 function onBridgeReady() {
-	alert(12);
-  WeixinJSBridge.on('menu:share:appmessage', function(argv) 
-  {
-    WeixinJSBridge.invoke('sendAppMessage',{
-          "link":"http://m.exmail.qq.com/",
-          "desc":"desc",
-          "title":"title for WeiXinJsBridge"
-    }, function(res) {
-      WeixinJSBridge.log(res.err_msg);
-    });
+	
+  WeixinJSBridge.on('menu:share:appmessage', function(argv){
+	  	alert(12);
+	    WeixinJSBridge.invoke('sendAppMessage',{
+	          "link":"http://m.exmail.qq.com/",
+	          "desc":"desc",
+	          "title":"title for WeiXinJsBridge"
+	    }, function(res) {
+	      WeixinJSBridge.log(res.err_msg);
+	    });
   });
-  WeixinJSBridge.on('menu:share:timeline', function(argv) 
-  {
-  WeixinJSBridge.invoke("shareTimeline",{
-    "link":"http://m.exmail.qq.com",
-    "img_url":"http://rescdn.qqmail.com/bizmail/zh_CN/htmledition/images/bizmail/v3/logo1ca3fe.png",
-    "img_width":"172",
-    "img_height":"40",
-    "desc":"i am description",
-    "title":"just test from WeixinJsBridge"
-    },
-    function(e){
-    alert(e.err_msg);
-    })
-  });
-  alert(34)
+    WeixinJSBridge.on('menu:share:timeline', function(argv){
+    	alert(34);
+	    WeixinJSBridge.invoke("shareTimeline",{
+	        "link":"http://m.exmail.qq.com",
+	        "img_url":"http://rescdn.qqmail.com/bizmail/zh_CN/htmledition/images/bizmail/v3/logo1ca3fe.png",
+	        "img_width":"172",
+	        "img_height":"40",
+	        "desc":"i am description",
+	        "title":"just test from WeixinJsBridge"
+	        },
+	        function(e){
+	        	alert(e.err_msg);
+	        }
+	    )
+	});
 }
 	//分享到朋友圈、微信好友，调用接口
 	/*wx.config({
