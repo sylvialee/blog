@@ -183,14 +183,16 @@
 		}
 	}
 if (typeof WeixinJSBridge === "undefined"){
+	alert(12);
   if (document.addEventListener){
     document.addEventListener('WeixinJSBridgeReady', onBridgeReady, false);
   }
 }else{
+	alert(34);
   onBridgeReady();
 }
 
-	
+
 function onBridgeReady() {
   WeixinJSBridge.on('menu:share:appmessage', function(argv) 
   {
