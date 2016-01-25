@@ -162,14 +162,14 @@
 		
 	   
 	}
-	for (var t=0; t<$('img').length/2; t++) {
+	for (var t=0; t<parseInt($('img').length/2); t++) {
 		var image=new Image();
 		image.src=$('img')[t].src;
 		var numt = 0;
 		image.onload=function  () {
 			numt++;
 
-			var Inum=$('img').length/2;
+			var Inum=parseInt($('img').length/2);
 			$('#bar').width((numt/Inum)*($(".graph").width()));
 			$("#loadingMsg").text("页面已加载" + Math.round((numt/Inum)*100) + "%")
 			if (numt>=Inum) {
