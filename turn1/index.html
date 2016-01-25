@@ -15,6 +15,13 @@
 	<script type="text/javascript" src="js/turn.js"></script>
 </head>
 <body>
+<div class="bgImg" style="display:none">
+	<img src="images/1.jpg">
+	<img src="images/2.jpg">
+	<img src="images/3.jpg">
+	<img src="images/12.jpg">
+	<img src="images/13.jpg">
+</div>
 <div id="loading" style="background:#efebde;height:100%;">
 	<div class="loadinner">
 		<div class="graph"> <span id="bar"></span></div>
@@ -97,13 +104,7 @@
 	</div>
 </div>
 </div>
-<div class="bgImg" style="display:none">
-	<img src="images/1.jpg">
-	<img src="images/2.jpg">
-	<img src="images/3.jpg">
-	<img src="images/12.jpg">
-	<img src="images/13.jpg">
-</div>
+
 	<!-- 微信接口时需引入js文件，先暂时注释 -->
     <!-- <script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>-->
 
@@ -161,17 +162,17 @@
 		
 	   
 	}
-	for (var t=0; t<$('img').length; t++) {
+	for (var t=0; t<$('img').length/2; t++) {
 		var image=new Image();
 		image.src=$('img')[t].src;
 		var numt = 0;
 		image.onload=function  () {
 			numt++;
 
-			var Inum=$('img').length;
+			var Inum=$('img').length/2;
 			$('#bar').width((numt/Inum)*($(".graph").width()));
 			$("#loadingMsg").text("页面已加载" + Math.round((numt/Inum)*100) + "%")
-			if (numt>=($('img').length)) {
+			if (numt>=Inum) {
 				setTimeout(function(){
 					$('audio')[0].play();
 					$(".flipbook").show();
@@ -182,46 +183,8 @@
 			}
 		}
 	}
-if (typeof WeixinJSBridge == "undefined"){
-    if (document.addEventListener){
-	    document.addEventListener('WeixinJSBridgeReady', onBridgeReady, false);
-    }else if (document.attachEvent){
-        document.attachEvent('WeixinJSBridgeReady', onBridgeReady); 
-        document.attachEvent('onWeixinJSBridgeReady', onBridgeReady);
-    }
-}else{
-  onBridgeReady();
-}
-
-
-function onBridgeReady() {
 	
-  WeixinJSBridge.on('menu:share:appmessage', function(argv){
-	  	alert(12);
-	    WeixinJSBridge.invoke('sendAppMessage',{
-	          "link":"http://m.exmail.qq.com/",
-	          "desc":"desc",
-	          "title":"title for WeiXinJsBridge"
-	    }, function(res) {
-	      WeixinJSBridge.log(res.err_msg);
-	    });
-  });
-    WeixinJSBridge.on('menu:share:timeline', function(argv){
-    	alert(34);
-	    WeixinJSBridge.invoke("shareTimeline",{
-	        "link":"http://m.exmail.qq.com",
-	        "img_url":"http://rescdn.qqmail.com/bizmail/zh_CN/htmledition/images/bizmail/v3/logo1ca3fe.png",
-	        "img_width":"172",
-	        "img_height":"40",
-	        "desc":"i am description",
-	        "title":"just test from WeixinJsBridge"
-	        },
-	        function(e){
-	        	alert(e.err_msg);
-	        }
-	    )
-	});
-}
+
 	//分享到朋友圈、微信好友，调用接口
 	/*wx.config({
 	    debug: false,
