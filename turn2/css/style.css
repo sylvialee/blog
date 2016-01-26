@@ -1,6 +1,51 @@
 body{
 	background: #efebde;	
 }
+
+.loadinner{
+	position:absolute;
+	width:100%;height:100%;
+	left:0;
+	top: 0;
+	text-align:center;
+	font-size:14px;
+	line-height:20px;
+	padding-top: 200px;
+}
+.graph{
+	background:#6c6c6c;
+	height: 3px;
+	width:70%;
+	margin:10px auto 0 auto;
+	border-radius: 1px;
+	overflow: hidden;
+}
+#bar{
+	display:block;
+	background:green;
+	height:3px;
+	width:10px;
+	border-radius: 1px;
+	overflow: hidden;
+}
+
+
+#yin{
+	position: fixed;
+	z-index: 900;
+	right:5%;
+	top:1%;
+	width:20px;
+	height:20px;
+	overflow: hidden;
+	font-family: microsoft yahei;
+	-webkit-animation:zhuan1 infinite;
+	
+	-webkit-animation-duration:2s;
+}
+#yin img{
+	height: 20px;
+}
 .sectionTurn{
 	position: relative;
 }
@@ -10,56 +55,56 @@ body{
 }
 .p1{
 	background:url(../images/1.jpg) center top no-repeat #efebde;
-	background-size:100% 
+	
 }
 
 .p2{
 	background:url(../images/2.jpg) center top no-repeat #efebde;
-	background-size:100% 
+	
 }
 .p3, .p4, .p5, .p6, .p7, .p8, .p9, .p10, .p11{
 	background:url(../images/3.jpg) center top no-repeat #efebde;
-	background-size:100% 
+	
 }
 .p4{
 	background:url(../images/4.jpg) center top no-repeat #efebde;
-	background-size:100% 
+	
 }
 .p5{
 	background:url(../images/5.jpg) center top no-repeat #efebde;
-	background-size:100% 
+	
 }
 .p6{
 	background:url(../images/6.jpg) center top no-repeat #efebde;
-	background-size:100% 
+	
 }
 .p7{
 	background:url(../images/7.jpg) center top no-repeat #efebde;
-	background-size:100% 
+	
 }
 .p8{
 	background:url(../images/8.jpg) center top no-repeat #efebde;
-	background-size:100% 
+	
 }
 .p9{
 	background:url(../images/9.jpg) center top no-repeat #efebde;
-	background-size:100% 
+	
 }
 .p10{
 	background:url(../images/10.jpg) center top no-repeat #efebde;
-	background-size:100% 
+	
 }
 .p11{
 	background:url(../images/11.jpg) center top no-repeat #efebde;
-	background-size:100% 
+	
 }
 .p12{
 	background:url(../images/12.jpg) center top no-repeat #efebde;
-	background-size:100% 
+	
 }
 .p13{
 	background:url(../images/13.jpg) center top no-repeat #efebde;
-	background-size:100% 
+	
 }
 
 

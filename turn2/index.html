@@ -25,6 +25,14 @@
 	<img src="images/1.jpg">
 	<img src="images/2.jpg">
 	<img src="images/3.jpg">
+	<img src="images/4.jpg">
+	<img src="images/5.jpg">
+	<img src="images/6.jpg">
+	<img src="images/7.jpg">
+	<img src="images/8.jpg">
+	<img src="images/9.jpg">
+	<img src="images/10.jpg">
+	<img src="images/11.jpg">
 	<img src="images/12.jpg">
 	<img src="images/13.jpg">
 </div>
@@ -37,72 +45,35 @@
   <audio src="music.mp3" controls loop="loop" autoplay="autoplay" hidden='true' style="position:absolute" id='myaudio'>您的浏览器不支持audio</audio>
 </div>
 <div class="flipbook-viewport">
-	<div class="container">
 	<div class="flipbook" style="none;">
 		<div class="sectionTurn" style="">
-			<img class="p1-1" src="images/1-1.png">
-			<img class="p1-2" src="images/1-2.png">
-			<img class="p1-3" src="images/1-3.png">
-			<img class="p1-4" src="images/1-4.png">
-			<img class="p1-5" src="images/1-5.png">
 		</div>
 		<div class="sectionTurn">
-			<img class="p2-1" src="images/2-1.png">
-			<img class="p2-2" src="images/2-2.png">
-			<img class="p2-3" src="images/2-3.png">
-			<img class="p2-4" src="images/2-4.png">
-			<img class="p2-5" src="images/2-5.png">
 		</div>
 		<div class="sectionTurn">
-			<img class="p3-1" src="images/3-1.png">
-			<img class="p3-2" src="images/3-2.png">
 		</div>
 		<div class="sectionTurn">
-			<img class="p4-1" src="images/4-1.png">
-			<img class="p4-2" src="images/4-2.png">
 		</div>
 		<div class="sectionTurn">
-			<img class="p5-1" src="images/5-1.png">
-			<img class="p5-2" src="images/5-2.png">			
 		</div>
 		<div class="sectionTurn">
-			<img class="p6-1" src="images/6-1.png">
-			<img class="p6-2" src="images/6-2.png">			
 		</div>
 		<div class="sectionTurn">
-			<img class="p7-1" src="images/7-1.png">
-			<img class="p7-2" src="images/7-2.png">			
 		</div>
 		<div class="sectionTurn">
-			<img class="p8-1" src="images/8-1.png">
-			<img class="p8-2" src="images/8-2.png">			
 		</div>
 		<div class="sectionTurn">
-			<img class="p9-1" src="images/9-1.png">
-			<img class="p9-2" src="images/9-2.png">			
 		</div>
 		<div class="sectionTurn">
-			<img class="p10-1" src="images/10-1.png">
-			<img class="p10-2" src="images/10-2.png">			
 		</div>
 		<div class="sectionTurn">
-			<img class="p11-1" src="images/11-1.png">
-			<img class="p11-2" src="images/11-2.png">			
 		</div>
 		<div class="sectionTurn">
-			<img class="p12-2" src="images/12-2.png">
-			<img class="p12-4" src="images/12-4.png">			
-			<img class="p12-3" src="images/12-3.png">
-			<img class="p12-1" src="images/12-1.png">
 		</div>
 		<div class="sectionTurn">
-
-			<img class="p13-1" src="images/13-1.png">
-			<img class="p13-2" src="images/13-2.png">
-			<img class="againBtn" onclick="turnTo(1);" src="images/13-3.png">			
+			<img class="againBtn" onclick="turnTo(1);" src="images/13-1.png">			
 		</div>
 	</div>
-</div>
 </div>
 
 	<!-- 微信接口时需引入js文件，先暂时注释 -->
@@ -150,12 +121,7 @@
 			gradients:true,
 			display:"single",
 			autoCenter:true,
-			when: {
-				turned:function(e, page){
-					$(".flipbook .sectionTurn").removeClass("active");
-					$(".flipbook .p" + page).addClass("active");
-				}
-			}
+			
 		});
 
 	}
