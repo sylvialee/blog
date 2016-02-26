@@ -3,60 +3,35 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>我的生活</title>
+    <title>省市区</title>
     <meta name="viewport" content="initial-scale=1, maximum-scale=1">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
 
-    <link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/??sm.min.css,sm-extend.min.css">
-<script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/??sm.min.js,sm-extend.min.js' charset='utf-8'></script>
+    <link rel="stylesheet" href="http://g.alicdn.com/msui/sm/0.6.2/css/sm.min.css">
     
 
   </head>
   <body>
     <div class="page-group">
     <div class="page page-current">
-        <!-- 你的html代码 -->
-        <div id="page-city-picker" class="page">
-    <header class="bar bar-nav">
-      <a class="button button-link button-nav pull-left back" href="/demos">
-        <span class="icon icon-left"></span>
-        返回
-      </a>
-      <h1 class='title'>省市区选择</h1>
-    </header>
-    <div class="content">
-      <div class="content-block-title">省市区</div>
-      <div class="content-block">
-        <div class="list-block">
-          <ul>
-            <!-- Text inputs -->
-            <li>
-              <div class="item-content">
-                <div class="item-inner">
-                  <div class="item-title label">省市区</div>
-                  <div class="item-input">
-                    <input type="text" placeholder="" id='city-picker'/>
-                  </div>
-                </div>
-              </div>
-            </li>
-          </ul>
-        </div>
-      </div>
+   
+            <input type="text" placeholder="" id='city-picker'/>
+                  
     </div>
-</div>
-        </div>
     </div>
 
-<script>
-  /*$("#city-picker").cityPicker({
-    toolbarTemplate: '<header class="bar bar-nav">\
-    <button class="button button-link pull-right close-picker">确定</button>\
-    <h1 class="title">选择收货地址</h1>\
-    </header>'
-  });*/
-</script>
+    <script type='text/javascript' src='http://g.alicdn.com/sj/lib/zepto/zepto.min.js' charset='utf-8'></script>
+    <script type='text/javascript' src='http://g.alicdn.com/msui/sm/0.6.2/js/sm.min.js' charset='utf-8'></script>
+    <script type='text/javascript' src='http://g.alicdn.com/msui/sm/0.6.2/js/sm-city-picker.min.js' charset='utf-8'></script>
+    <script>
+      $("#city-picker").cityPicker({
+        toolbarTemplate: '<header class="bar bar-nav">\
+        <button class="button button-link pull-right close-picker">确定</button>\
+        <h1 class="title">选择收货地址</h1>\
+        </header>'
+      });
+    </script>
 
   </body>
 </html>
