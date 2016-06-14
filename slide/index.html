@@ -1,0 +1,102 @@
+<html>
+<head>
+	<meta charset='utf-8'>
+	<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+	<script type="text/javascript">
+        function resize() {
+            var remFontSize = +document.documentElement.clientWidth / 16;
+            document.documentElement.style.fontSize = remFontSize + "px";
+        }
+        var b = null;
+        window.addEventListener("resize", function() {
+            clearTimeout(b),
+            b = setTimeout(resize, 300)
+        }, !1);
+        resize();
+    </script>
+
+    <style type="text/css">
+
+	body{margin: 0;padding: 0;}
+	ul{width:100%;height:10.24rem;text-decoration: none;margin: 0;padding: 0;box-sizing: border-box;transform: translateX(0%);-webkit-transform:translateX(0%);transition: transform ease-in-out 1s;white-space: nowrap;}
+	ul li{width: 14.3rem;height:100%;display: inline-block;vertical-align: top;margin-right: 0.425rem;margin-top: 0.425rem;color: #fff;text-align: center;transition:transform ease-in-out 1s;font-size:0px;-webkit-text-size-adjust:none;}
+	ul li.right{transform-origin: 0 50%;transform: scale(0.83);}
+	ul li.left{transform-origin: 100% 50%;transform: scale(0.83);}
+	ul li.active{transform-origin: center;transform: scale(1); }
+	ul li:first-child{margin-left: 0.85rem;}
+	ul li:last-child{margin-right: 0.85rem;}
+
+	.slide{height: 7.68rem;border-radius:0.172rem;font-size: .75rem;}
+    .yellow{
+        box-shadow:  0 0.43rem 0.43rem 0px  rgba(246,163,54,0.35);
+        background: -webkit-linear-gradient(#fcb039, #ffcf11);
+    }
+    .green{
+        background: -webkit-linear-gradient(#00c9d0, #02d9b8);
+        box-shadow:  0 0.43rem 0.43rem 0px  rgba(2,217,184,0.35);
+    }
+    .red{
+        background: -webkit-linear-gradient(#fe5b6a, #ff7a93);
+        box-shadow:  0 0.43rem 0.43rem 0px  rgba(255,101,116,0.35);
+    }
+	</style>
+
+</head>
+<body>
+	<div class="upper">
+		<ul>
+			<li>
+				<div class="slide green">slide1</div>
+			</li><li>
+				<div class="slide yellow">slide2</div>
+			</li><li>
+				<div class="slide red">slide3</div>
+			</li><li>
+				<div class="slide green">slide4</div>
+			</li><li class="active">
+				<div class="slide green">slide5</div>
+			</li>
+		</ul>
+	</div>
+	<script type="text/javascript" src="zepto.min.js"></script>
+	<script type="text/javascript">
+		function init(){
+			var active = $(".active");
+			var left = active.prev();
+			var right = active.next();
+			var index = active.index();
+
+			left.addClass("left");
+			right.addClass("right");
+			$(".upper ul").css("transform","translateX(-"+(index*14.725)+"rem)");
+		}
+		function swipeBanner(){
+			var active = $(".active");
+			var left = active.prev();
+			var right = active.next();
+			var box = $(".upper ul");
+			var index = active.index();
+			var d = 15.15, l=0.85;
+
+			$(".upper ul").swipeRight(function(){
+				left.removeClass("left").addClass("active");
+				active.removeClass("active").addClass("right");
+				right.removeClass("right");
+				left.prev().addClass("left");
+				box.css("transform","translateX(-"+((index*15.15)-0.85)+"rem)");
+			});
+			$(".upper ul").swipeLeft(function(){	
+				left.removeClass("left");
+				active.removeClass("active").addClass("left");
+				right.removeClass("right").addClass("active");
+				right.next().addClass("right");
+				box.css("transform","translateX(-"+((index+1)*15.15-0.85)+"rem)");
+			});
+
+		}
+		init();
+		swipeBanner();
+	</script>
+</body>
+
+</html>
