@@ -49,11 +49,11 @@
 				<div class="slide green">slide1</div>
 			</li><li>
 				<div class="slide yellow">slide2</div>
-			</li><li>
+			</li><li class="active">
 				<div class="slide red">slide3</div>
 			</li><li>
 				<div class="slide green">slide4</div>
-			</li><li class="active">
+			</li><li>
 				<div class="slide green">slide5</div>
 			</li>
 		</ul>
@@ -76,9 +76,8 @@
 			var right = active.next();
 			var box = $(".upper ul");
 			var index = active.index();
-			var d = 15.15, l=0.85;
 
-			$(".upper ul li").swipeRight(function(){
+			$(".upper ul").swipeRight(function(){
 				left.removeClass("left").addClass("active");
 				active.removeClass("active").addClass("right");
 				right.removeClass("right");
