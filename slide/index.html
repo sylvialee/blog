@@ -69,6 +69,9 @@
 
 			left.addClass("left");
 			right.addClass("right");
+			left.on('tap', prevCard);
+			right.on('tap', nextCard);
+
 			$(".upper ul").css("transform","translateX(-"+(index*14.725)+"rem)");
 		}
 		function swipeBanner(){
@@ -89,10 +92,10 @@
 			var index = active.index();
 
 			if(index<(len-1)){
-				left.removeClass("left");
-				active.removeClass("active").addClass("left");
-				right.removeClass("right").addClass("active");
-				right.next().addClass("right");
+				left.removeClass("left").off('tap', prevCard);
+				active.removeClass("active").addClass("left").on('tap', prevCard);
+				right.removeClass("right").addClass("active").off('tap', nextCard);
+				right.next().addClass("right").on('tap', nextCard);
 				box.css("transform","translateX(-"+(index+1)*14.725+"rem)");
 			}
 		}
@@ -103,10 +106,10 @@
 			var box = $(".upper ul");
 			var index = active.index();
 			if(index!==0){
-				left.removeClass("left").addClass("active");
-				active.removeClass("active").addClass("right");
-				right.removeClass("right");
-				left.prev().addClass("left");
+				left.removeClass("left").addClass("active").off('tap', prevCard);
+				active.removeClass("active").addClass("right").on('tap',nextCard);
+				right.removeClass("right").off('tap', nextCard);
+				left.prev().addClass("left").on('tap', prevCard);
 				box.css("transform","translateX(-"+(index-1)*14.725+"rem)");
 
 			}
