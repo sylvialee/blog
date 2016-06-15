@@ -63,10 +63,10 @@
 	<script type="text/javascript">
 		function init(){
 			var active = $(".active");
-			var left = active.prev();
-			var right = active.next();
+			var left = active.prev()||null;
+			var right = active.next()||null;
 			var index = active.index();
-
+			console.log('init:'+index);
 			$(".upper ul li").css("transition-property","transform");
 			left.addClass("left");
 			right.addClass("right");
@@ -75,14 +75,16 @@
 			$(".upper ul").css("transition-property","transform, margin-left");
 			$(".upper ul").css("margin-left","0rem");
 			$(".upper ul").css("transform","translateX(-"+(index*14.725)+"rem)");
+			console.log('init:'+$(".active").index());
+
 		}
 		function swipeBanner(){
-			$(".upper ul").swipeRight(function(){
+			/*$(".upper ul").swipeRight(function(){
 				prevCard();
 			});
 			$(".upper ul").swipeLeft(function(){	
 				nextCard();
-			});
+			});*/
 			$(".upper ul").bind("touchstart",function (event) {
 				touchSlide.touchStart(event);
 			})
@@ -92,7 +94,9 @@
 			});
 			$(".upper ul").bind("touchend",function(event){
 				touchSlide.touchEnd(event);
+
 			});
+			console.log('finish1:'+$(".active").index());
 
 		}
 		var touchSlide = {
@@ -101,8 +105,8 @@
 			x:0,
 			w:document.documentElement.clientWidth ,
 			active:$(".active"),
-			left: $(".active").prev(),
-			right:$(".active").next(),
+			left: $(".active").prev()||null,
+			right:$(".active").next()||null,
 
 			touchStart:function(event){
 				event.preventDefault();
@@ -143,6 +147,7 @@
 				$(".upper ul li").eq((index-i)>0?(index-i):0).addClass("active");
 				console.log($(".active").index());
 				init();
+				console.log('finish:'+$(".active").index());
 			}
 
 		}
