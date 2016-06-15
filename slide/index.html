@@ -67,22 +67,22 @@
 			var right = active.next();
 			var index = active.index();
 
-			$(".upper ul li").css("transition-property","transfrom");
+			$(".upper ul li").css("transition-property","transform");
 			left.addClass("left");
 			right.addClass("right");
 			left.on('tap', prevCard);
 			right.on('tap', nextCard);
-			$(".upper ul").css("transition-property","transfrom, margin-left");
+			$(".upper ul").css("transition-property","transform, margin-left");
 			$(".upper ul").css("margin-left","0rem");
 			$(".upper ul").css("transform","translateX(-"+(index*14.725)+"rem)");
 		}
 		function swipeBanner(){
-			/*$(".upper ul").swipeRight(function(){
+			$(".upper ul").swipeRight(function(){
 				prevCard();
 			});
 			$(".upper ul").swipeLeft(function(){	
 				nextCard();
-			});*/
+			});
 			$(".upper ul").bind("touchstart",function (event) {
 				touchSlide.touchStart(event);
 			})
@@ -159,7 +159,7 @@
 		}*/
 		function prevCard(){
 			var active = $(".active");
-			var left = active.prev();
+			var left = active.prev()||null;
 			var right = active.next();
 			var box = $(".upper ul");
 			var index = active.index();
@@ -177,7 +177,7 @@
 			var len = $(".upper ul li").length;
 			var active = $(".active");
 			var left = active.prev();
-			var right = active.next();
+			var right = active.next()||null;
 			var box = $(".upper ul");
 			var index = active.index();
 
