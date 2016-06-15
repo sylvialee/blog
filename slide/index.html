@@ -81,14 +81,83 @@
 			$(".upper ul").swipeLeft(function(){	
 				nextCard();
 			});
+			$(".upper ul").bind("touchstart",function (event) {
+				touchSlide.touchStart(event);
+				$(".upper ul").bind("touchmove",function(event){
+					touchSlide.touchMove(event);
+					$(".upper ul").bind("touchend",function(event){
+						touchSlide.touchEnd(event);
+					});
+				});
+				
+			})
 
 		}
+		var touchSlide = {
+			startX:0,
+			r:50,
+			x:0,
+			w:document.documentElement.clientWidth ,
+			active:$(".active"),
+			left: $(".active").prev(),
+			right:$(".active").next(),
+
+			touchStart:function(event){
+				event.preventDefault();
+				//alert(event);
+				var touch = event.touches[0];
+				startX = touch.pageX;
+				console.log(startX);
+			},
+			touchMove:function(event){
+				//event.preventDefault();
+				var touch = event.touches[0],
+					x = touch.pageX - startX,
+					d = (x*16)/this.w,
+					index = this.active.index(),
+					transX = -index*14.725;
+
+				//计算位移距离，ul设置translatex值
+				$(".upper ul").css("margin-left", d+"rem");
+
+				//计算放大缩小概率
+				this.active.css("transform","scale("+((1-Math.abs(d)/this.r)>=0.83 ? (1-Math.abs(d)/this.r) : 0.83)+")");
+				this.left.css("transform","scale("+((0.83+Math.abs(d)/this.r)<=1 ? (0.83+Math.abs(d)/this.r) : 1)+")");
+				this.right.css("transform","scale("+((0.83+Math.abs(d)/this.r)<=1 ? (0.83+Math.abs(d)/this.r) : 1)+")")
+			},
+			touchEnd:function(event){
+				//event.preventDefault();
+				//计算当前显示的主卡片
+				var d = Math.abs($(".upper ul").css("transform").split("(")[1].split("rem")[0]);
+				$(".upper ul").css("margin-left",0);
+				console.log(d);
+				var index = Math.round(d/14.725);
+				console.log(index);
+				$(".upper ul li").removeClass("active").removeClass("left").removeClass("right");
+				$(".upper ul li").eq(index).addClass("active");
+				$(".upper ul li").removeAttr("style");
+				init();
+			}
+
+		}
+		/*function touchstart(event){
+			var e = event || window.event;
+			var b ＝ document.getElementsByTagName('body');
+			switch(event.type){
+				case 'touchstart':
+					b.append('touch started (' +event.touches[0].clientX+',' + event.touches[0].clientY+")");
+					break;
+				case 'touchmove':
+					event.preventDefault();
+			}
+		}*/
 		function prevCard(){
 			var active = $(".active");
 			var left = active.prev();
 			var right = active.next();
 			var box = $(".upper ul");
 			var index = active.index();
+
 			if(index!==0){
 				left.removeClass("left").addClass("active").tap(null);
 				active.removeClass("active").addClass("right").tap(nextCard);
@@ -107,9 +176,9 @@
 			var index = active.index();
 
 			if(index<(len-1)){
-				left.removeClass("left").tap(function(){});
+				left.removeClass("left").tap(null);
 				active.removeClass("active").addClass("left").tap(prevCard);
-				right.removeClass("right").addClass("active").tap(function(){});
+				right.removeClass("right").addClass("active").tap(null);
 				right.next().addClass("right").tap(nextCard);
 				box.css("transform","translateX(-"+(index+1)*14.725+"rem)");
 			}
