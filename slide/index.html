@@ -66,7 +66,6 @@
 			var left = active.prev()||null;
 			var right = active.next()||null;
 			var index = active.index();
-			console.log('init:'+index);
 			$(".upper ul li").css("transition-property","transform");
 			left.addClass("left");
 			right.addClass("right");
@@ -75,17 +74,16 @@
 			$(".upper ul").css("transition-property","transform, margin-left");
 			$(".upper ul").css("margin-left","0rem");
 			$(".upper ul").css("transform","translateX(-"+(index*14.725)+"rem)");
-			console.log('init:'+$(".active").index());
 
 		}
 		function swipeBanner(){
-			/*$(".upper ul").swipeRight(function(){
+			$(".upper ul").swipeRight(function(){
 				prevCard();
 			});
 			$(".upper ul").swipeLeft(function(){	
 				nextCard();
-			});*/
-			$(".upper ul").bind("touchstart",function (event) {
+			});
+			/*$(".upper ul").bind("touchstart",function (event) {
 				touchSlide.touchStart(event);
 			})
 			$(".upper ul").bind("touchmove",function(event){
@@ -95,8 +93,7 @@
 			$(".upper ul").bind("touchend",function(event){
 				touchSlide.touchEnd(event);
 
-			});
-			console.log('finish1:'+$(".active").index());
+			});*/
 
 		}
 		var touchSlide = {
@@ -139,18 +136,23 @@
 				var active = $(".active");
 				var left = $(".active").prev()||null;
 				var right = $(".active").next()||null;
+				var len = $(".upper li").length;
 				var d = $(".upper ul").css("margin-left").split("rem")[0];
 				//var d = $(".upper ul").css("margin-left").split("rem")[0];
 				var index = $(".active").index();
 				var i = Math.round(d/16);
-				console.log(d);
-				console.log(index);
+				console.log(i);
 				$(".upper ul li").removeAttr("class");
 				$(".upper ul li").removeAttr("style");
-				$(".upper ul li").eq((index-i)>0?(index-i):0).addClass("active");
-				console.log($(".active").index());
+				console.log(index-i);
+				if(index-i>0 && index-i<len){
+					$(".upper ul li").eq(index-i).addClass("active");
+				}else if(index-i<0){
+					$(".upper ul li").eq(0).addClass("active");
+				}else{
+					$(".upper ul li").eq(len-1).addClass("active");
+				}
 				init();
-				console.log('finish:'+$(".active").index());
 			}
 
 		}
