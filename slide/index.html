@@ -76,14 +76,29 @@
 		}
 		function swipeBanner(){
 			$(".upper ul").swipeRight(function(){
-				nextCard();
+				prevCard();
 			});
 			$(".upper ul").swipeLeft(function(){	
-				prevCard();
+				nextCard();
 			});
 
 		}
 		function prevCard(){
+			var active = $(".active");
+			var left = active.prev();
+			var right = active.next();
+			var box = $(".upper ul");
+			var index = active.index();
+			if(index!==0){
+				left.removeClass("left").addClass("active").tap(null);
+				active.removeClass("active").addClass("right").tap(nextCard);
+				right.removeClass("right").tap(null);
+				left.prev().addClass("left").tap(prevCard);
+				box.css("transform","translateX(-"+(index-1)*14.725+"rem)");
+
+			}
+		}
+		function nextCard(){
 			var len = $(".upper ul li").length;
 			var active = $(".active");
 			var left = active.prev();
@@ -97,21 +112,6 @@
 				right.removeClass("right").addClass("active").tap(function(){});
 				right.next().addClass("right").tap(nextCard);
 				box.css("transform","translateX(-"+(index+1)*14.725+"rem)");
-			}
-		}
-		function nextCard(){
-			var active = $(".active");
-			var left = active.prev();
-			var right = active.next();
-			var box = $(".upper ul");
-			var index = active.index();
-			if(index!==0){
-				left.removeClass("left").addClass("active").tap(null);
-				active.removeClass("active").addClass("right").tap(nextCard);
-				right.removeClass("right").tap(null);
-				left.prev().addClass("left").tap(prevCard);
-				box.css("transform","translateX(-"+(index-1)*14.725+"rem)");
-
 			}
 		}
 		init();
