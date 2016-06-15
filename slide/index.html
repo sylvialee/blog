@@ -78,9 +78,11 @@
 		}
 		function swipeBanner(){
 			$(".upper ul").swipeRight(function(){
+				event.preventDefault();
 				prevCard();
 			});
 			$(".upper ul").swipeLeft(function(){	
+				event.preventDefault();
 				nextCard();
 			});
 			/*$(".upper ul").bind("touchstart",function (event) {
@@ -198,6 +200,12 @@
 				right.next().addClass("right").tap(nextCard);
 				box.css("transform","translateX(-"+(index+1)*14.725+"rem)");
 			}
+		}
+
+
+
+		var slideTouch = {
+
 		}
 		init(0);
 		swipeBanner();
