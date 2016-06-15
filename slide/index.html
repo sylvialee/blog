@@ -92,10 +92,10 @@
 			var index = active.index();
 
 			if(index<(len-1)){
-				left.removeClass("left").off('tap', prevCard);
-				active.removeClass("active").addClass("left").on('tap', prevCard);
-				right.removeClass("right").addClass("active").off('tap', nextCard);
-				right.next().addClass("right").on('tap', nextCard);
+				left.removeClass("left").tap(function(){});
+				active.removeClass("active").addClass("left").tap(prevCard);
+				right.removeClass("right").addClass("active").tap(function(){});
+				right.next().addClass("right").tap(nextCard);
 				box.css("transform","translateX(-"+(index+1)*14.725+"rem)");
 			}
 		}
@@ -106,10 +106,10 @@
 			var box = $(".upper ul");
 			var index = active.index();
 			if(index!==0){
-				left.removeClass("left").addClass("active").off('tap', prevCard);
-				active.removeClass("active").addClass("right").on('tap',nextCard);
-				right.removeClass("right").off('tap', nextCard);
-				left.prev().addClass("left").on('tap', prevCard);
+				left.removeClass("left").addClass("active").tap(null);
+				active.removeClass("active").addClass("right").tap(nextCard);
+				right.removeClass("right").tap(null);
+				left.prev().addClass("left").tap(prevCard);
 				box.css("transform","translateX(-"+(index-1)*14.725+"rem)");
 
 			}
