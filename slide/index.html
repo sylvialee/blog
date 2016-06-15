@@ -66,13 +66,13 @@
 			var left = active.prev()||null;
 			var right = active.next()||null;
 			var index = active.index();
-			$(".upper ul li").css("transition-property","transform");
+			//$(".upper ul li").css("transition-property","transform");
 			left.addClass("left");
 			right.addClass("right");
 			left.on('tap', prevCard);
 			right.on('tap', nextCard);
-			$(".upper ul").css("transition-property","transform, margin-left");
-			$(".upper ul").css("margin-left","0rem");
+			//$(".upper ul").css("transition-property","transform, margin-left");
+			//$(".upper ul").css("margin-left","0rem");
 			$(".upper ul").css("transform","translateX(-"+(index*14.725)+"rem)");
 
 		}
