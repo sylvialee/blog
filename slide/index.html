@@ -104,9 +104,6 @@
 			r:94,
 			x:0,
 			w:document.documentElement.clientWidth ,
-			active:$(".active"),
-			left: $(".active").prev()||null,
-			right:$(".active").next()||null,
 
 			touchStart:function(event){
 				event.preventDefault();
@@ -116,10 +113,13 @@
 			},
 			touchMove:function(event){
 				//event.preventDefault();
+				var active = $(".active");
+				var left = active.prev()||null;
+				var right = active.next()||null;
 				var touch = event.touches[0],
 					x = touch.pageX - startX,
 					d = (x*16)/this.w,
-					index = this.active.index(),
+					index = active.index(),
 					transX = -index*14.725;
 
 				$(".upper ul").css("transition-property","none");
@@ -128,14 +128,17 @@
 				$(".upper ul").css("margin-left", d+"rem");
 
 				//计算放大缩小概率
-				this.active.css("transform","scale("+((1-Math.abs(d)/this.r)>=0.83 ? (1-Math.abs(d)/this.r) : 0.83)+")");
-				this.left.css("transform","scale("+((0.83+Math.abs(d)/this.r)<=1 ? (0.83+Math.abs(d)/this.r) : 1)+")");
-				this.right.css("transform","scale("+((0.83+Math.abs(d)/this.r)<=1 ? (0.83+Math.abs(d)/this.r) : 1)+")");
+				active.css("transform","scale("+((1-Math.abs(d)/this.r)>=0.83 ? (1-Math.abs(d)/this.r) : 0.83)+")");
+				left.css("transform","scale("+((0.83+Math.abs(d)/this.r)<=1 ? (0.83+Math.abs(d)/this.r) : 1)+")");
+				right.css("transform","scale("+((0.83+Math.abs(d)/this.r)<=1 ? (0.83+Math.abs(d)/this.r) : 1)+")");
 
 			},
 			touchEnd:function(event){
 				//event.preventDefault();
 				//计算当前显示的主卡片
+				var active = $(".active");
+				var left = $(".active").prev()||null;
+				var right = $(".active").next()||null;
 				var d = $(".upper ul").css("margin-left").split("rem")[0];
 				//var d = $(".upper ul").css("margin-left").split("rem")[0];
 				var index = $(".active").index();
