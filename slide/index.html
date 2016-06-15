@@ -75,21 +75,21 @@
 			$(".upper ul").css("transform","translateX(-"+(index*14.725)+"rem)");
 		}
 		function swipeBanner(){
-			$(".upper ul").swipeRight(function(){
+			/*$(".upper ul").swipeRight(function(){
 				prevCard();
 			});
 			$(".upper ul").swipeLeft(function(){	
 				nextCard();
-			});
+			});*/
 			$(".upper ul").bind("touchstart",function (event) {
 				touchSlide.touchStart(event);
 				$(".upper ul").bind("touchmove",function(event){
 					touchSlide.touchMove(event);
-					$(".upper ul").bind("touchend",function(event){
-						touchSlide.touchEnd(event);
-					});
+					
 				});
-				
+				$(".upper ul").bind("touchend",function(event){
+					touchSlide.touchEnd(event);
+				});
 			})
 
 		}
@@ -107,7 +107,7 @@
 				//alert(event);
 				var touch = event.touches[0];
 				startX = touch.pageX;
-				console.log(startX);
+				//console.log(startX);
 			},
 			touchMove:function(event){
 				//event.preventDefault();
@@ -128,14 +128,17 @@
 			touchEnd:function(event){
 				//event.preventDefault();
 				//计算当前显示的主卡片
-				var d = Math.abs($(".upper ul").css("transform").split("(")[1].split("rem")[0]);
-				$(".upper ul").css("margin-left",0);
-				console.log(d);
-				var index = Math.round(d/14.725);
+				//var d = Math.abs($(".upper ul").css("transform").split("(")[1].split("rem")[0]);
+				var d = $(".upper ul").css("margin-left").split("rem")[0];
+				var index = $(".active").index();
+				var i = Math.round(d/16);
+				console.log(i);
 				console.log(index);
-				$(".upper ul li").removeClass("active").removeClass("left").removeClass("right");
-				$(".upper ul li").eq(index).addClass("active");
+				$(".upper ul").css("margin-left",0);
+				$(".upper ul li").removeAttr("class");
 				$(".upper ul li").removeAttr("style");
+				$(".upper ul li").eq(index+i).addClass("active");
+				alert(index+i);
 				init();
 			}
 
