@@ -104,7 +104,6 @@
 
 			touchStart:function(event){
 				event.preventDefault();
-				//alert(event);
 				var touch = event.touches[0];
 				startX = touch.pageX;
 				//console.log(startX);
@@ -138,7 +137,6 @@
 				$(".upper ul li").removeAttr("class");
 				$(".upper ul li").removeAttr("style");
 				$(".upper ul li").eq(index+i).addClass("active");
-				//alert(index+i);
 				init();
 			}
 
