@@ -72,13 +72,14 @@
 			$(".upper ul").css("transform","translateX(-"+(index*14.725)+"rem)");
 		}
 		function swipeBanner(){
-			var active = $(".active");
-			var left = active.prev();
-			var right = active.next();
-			var box = $(".upper ul");
-			var index = active.index();
 
 			$(".upper ul").swipeRight(function(){
+				var active = $(".active");
+				var left = active.prev();
+				var right = active.next();
+				var box = $(".upper ul");
+				var index = active.index();
+
 				left.removeClass("left").addClass("active");
 				active.removeClass("active").addClass("right");
 				right.removeClass("right");
@@ -86,6 +87,12 @@
 				box.css("transform","translateX(-"+(index-1)*14.725+"rem)");
 			});
 			$(".upper ul").swipeLeft(function(){	
+				var active = $(".active");
+				var left = active.prev();
+				var right = active.next();
+				var box = $(".upper ul");
+				var index = active.index();
+
 				left.removeClass("left");
 				active.removeClass("active").addClass("left");
 				right.removeClass("right").addClass("active");
